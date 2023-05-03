@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/c7c685c5a2.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body data-page-id="<?php echo $__env->yieldContent('data-page-id'); ?>">
 
 <?php echo $__env->make('includes.admin-sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 

@@ -11935,7 +11935,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(39);
+module.exports = __webpack_require__(41);
 
 
 /***/ }),
@@ -11953,18 +11953,18 @@ __webpack_require__(36);
 __webpack_require__(37);
 
 //custom js files
-/*require('../../assets/js/acme');
-require('../../assets/js/admin/create');
-require('../../assets/js/admin/dashboard');
-require('../../assets/js/admin/delete');
-require('../../assets/js/admin/events');
-require('../../assets/js/admin/update');
-require('../../assets/js/pages/cart');
-require('../../assets/js/pages/home_products');
-require('../../assets/js/pages/lib');
-require('../../assets/js/pages/product_details');
-require('../../assets/js/pages/slider');*/
 __webpack_require__(38);
+// require('../../assets/js/admin/create');
+// require('../../assets/js/admin/dashboard');
+// require('../../assets/js/admin/delete');
+// require('../../assets/js/admin/events');
+__webpack_require__(39);
+// require('../../assets/js/pages/cart');
+// require('../../assets/js/pages/home_products');
+// require('../../assets/js/pages/lib');
+// require('../../assets/js/pages/product_details');
+// require('../../assets/js/pages/slider');
+__webpack_require__(40);
 
 /***/ }),
 /* 12 */
@@ -45743,13 +45743,78 @@ return src;
 /***/ (function(module, exports) {
 
 (function () {
-    'use strict';
+  'use strict';
 
-    $(document).foundation();
+  window.ESTORE = {
+    global: {},
+    admin: {}
+  };
 })();
 
 /***/ }),
 /* 39 */
+/***/ (function(module, exports) {
+
+(function () {
+    'use strict';
+
+    ESTORE.admin.update = function () {
+
+        //update product category
+        $(".update-category").on('click', function (e) {
+            var token = $(this).data('token');
+            var id = $(this).attr('id');
+            var name = $("#item-name-" + id).val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/admin/product/categories/' + id + '/edit',
+                data: { token: token, name: name },
+                success: function success(data) {
+                    var response = jQuery.parseJSON(data);
+                    $(".notification").css("display", 'block').delay(4000).slideUp(300).html(response.success);
+                },
+                error: function error(request, _error) {
+                    var errors = jQuery.parseJSON(request.responseText);
+                    var ul = document.createElement('ul');
+                    $.each(errors, function (key, value) {
+                        var li = document.createElement('li');
+                        li.appendChild(document.createTextNode(value));
+                        ul.appendChild(li);
+                    });
+                    $(".notification").css("display", 'block').delay(6000).slideUp(300).html(ul);
+                }
+            });
+
+            e.preventDefault();
+        });
+    };
+})();
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
+(function () {
+    'use strict';
+
+    $(document).foundation();
+
+    $(document).ready(function () {
+        switch ($("body").data("page-id")) {
+            case 'home':
+                break;
+            case 'adminCategories':
+                ESTORE.admin.update();
+                break;
+            default:
+            // do nothing
+        }
+    });
+})();
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -11,3 +11,5 @@ $router->map('POST','/admin','App\controllers\admin\DashboardController@get','ad
 //product management
 $router->map('GET','/admin/product/categories','App\controllers\admin\ProductCategoryController@show','product_category');
 $router->map('POST','/admin/product/categories','App\controllers\admin\ProductCategoryController@store','create_product_category');
+
+$router->map('POST','/admin/product/categories/[i:id]/edit','App\controllers\admin\ProductCategoryController@edit','edit_product_category');

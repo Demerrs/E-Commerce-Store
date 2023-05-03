@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/c7c685c5a2.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body data-page-id="@yield('data-page-id')">
 
 @include('includes.admin-sidebar')
 
