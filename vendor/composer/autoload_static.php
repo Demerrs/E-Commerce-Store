@@ -17,6 +17,7 @@ class ComposerStaticInit30fa3632810720e86163118021d21137
     public static $prefixLengthsPsr4 = array (
         'v' => 
         array (
+            'voku\\helper\\' => 12,
             'verify\\' => 7,
         ),
         'W' => 
@@ -69,6 +70,10 @@ class ComposerStaticInit30fa3632810720e86163118021d21137
     );
 
     public static $prefixDirsPsr4 = array (
+        'voku\\helper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/voku/pagination/src/voku/helper',
+        ),
         'verify\\' => 
         array (
             0 => __DIR__ . '/../..' . '/verify',
@@ -203,6 +208,7 @@ class ComposerStaticInit30fa3632810720e86163118021d21137
         'App\\classes\\Request' => __DIR__ . '/../..' . '/app/classes/Request.php',
         'App\\classes\\Session' => __DIR__ . '/../..' . '/app/classes/Session.php',
         'App\\classes\\UploadFile' => __DIR__ . '/../..' . '/app/classes/UploadFile.php',
+        'App\\classes\\ValidateRequest' => __DIR__ . '/../..' . '/app/classes/ValidateRequest.php',
         'App\\controllers\\BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
         'App\\controllers\\IndexController' => __DIR__ . '/../..' . '/app/controllers/IndexController.php',
         'App\\controllers\\admin\\DashboardController' => __DIR__ . '/../..' . '/app/controllers/admin/DashboardController.php',
@@ -791,6 +797,8 @@ class ComposerStaticInit30fa3632810720e86163118021d21137
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'voku\\helper\\Paginator' => __DIR__ . '/..' . '/voku/pagination/src/voku/helper/Paginator.php',
+        'voku\\helper\\PaginatorHelper' => __DIR__ . '/..' . '/voku/pagination/src/voku/helper/PaginatorHelper.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

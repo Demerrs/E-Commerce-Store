@@ -11966,11 +11966,6 @@ require('../../assets/js/pages/product_details');
 require('../../assets/js/pages/slider');*/
 __webpack_require__(38);
 
-$(document).foundation();
-
-// Initialize the off-canvas menu
-$('#offCanvas').foundation('open');
-
 /***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {

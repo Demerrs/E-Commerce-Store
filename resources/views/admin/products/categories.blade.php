@@ -3,16 +3,16 @@
 
 @section('content')
     <div class="category">
-        <div class="row expanded">
-            <h2>Product Categories</h2>
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-11">
+                <h2>Product Categories</h2> <hr />
+            </div>
         </div>
 
-        @if(isset($message) && $message)
-            <p>{{ $message }}</p>
-        @endif
+        @include('includes.message')
 
-        <div class="row expanded">
-            <div class="small-12 medium-6 column">
+        <div class="grid-x grid-padding-x">
+            <div class="small-12 medium-6 cell">
                 <form action="" method="post">
                     <div class="input-group">
                         <input type="text" class="input-group-field" placeholder="Search by name">
@@ -23,7 +23,7 @@
                 </form>
             </div>
 
-            <div class="small-12 medium-5 end column">
+            <div class="small-12 medium-5 end cell">
                 <form action="/admin/product/categories" method="post">
                     <div class="input-group">
                         <input type="text" class="input-group-field" name="name" placeholder="Category Name">
@@ -36,17 +36,17 @@
             </div>
         </div>
 
-        <div class="row expanded">
-            <div class="small-12 medium-11 column">
+        <div class="grid-x grid-padding-x">
+            <div class="small-12 medium-11 cell">
                 @if(count($categories))
-                    <table class="hover">
+                    <table class="hover ">
                         <tbody>
                         @foreach($categories as $category)
                             <tr>
-                                <td>{{ $category->name }}</td>
-                                <td>{{ $category->slug }}</td>
-                                <td>{{ $category->created_at->toFormattedDateString() }}</td>
-                                <td width="100" class="text-right">
+                                <td>{{ $category['name'] }}</td>
+                                <td>{{ $category['slug'] }}</td>
+                                <td>{{ $category['added'] }}</td>
+                                <td width="70"class="text-right">
                                     <a href="#"><i class="fa fa-edit"></i></a>
                                     <a href="#"><i class="fa fa-times"></i></a>
                                 </td>
@@ -54,6 +54,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    {!! $links !!}
                 @else
                     <h3>You have not created any category</h3>
                 @endif

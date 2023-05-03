@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
     <div class="dashboard">
-        <div class="row expanded">
+        <div class="grid-x">
             <h2>Dashboard</h2>
             <form action="/admin" method="post" enctype="multipart/form-data">
                 <input name="product" value="testing">
