@@ -62,20 +62,18 @@ class ProductCategoryController
         return null;
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         if(Request::has('post')){
             $request = Request::get('post');
 
-            $message = 'Category Created';
             if(CSRFToken::verifyCSRFToken($request->token)){
                 $rules = [
                     'name' => ['required' => true, 'minLength' => 3, 'string' => true, 'unique' => 'categories']
                 ];
-
                 $validate = new ValidateRequest;
                 $validate->abide($_POST, $rules);
-
-                if ($validate->hasError()){
+                if($validate->hasError()){
                     $errors = $validate->getErrorMessages();
                     header('HTTP/1.1 422 Unprocessable Entity', true, 422);
                     echo json_encode($errors);
@@ -88,6 +86,7 @@ class ProductCategoryController
             }
             throw new \Exception('Token mismatch');
         }
+
         return null;
     }
 }

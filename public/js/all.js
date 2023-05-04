@@ -45743,12 +45743,12 @@ return src;
 /***/ (function(module, exports) {
 
 (function () {
-  'use strict';
+    'use strict';
 
-  window.ESTORE = {
-    global: {},
-    admin: {}
-  };
+    window.ESTORE = {
+        global: {},
+        admin: {}
+    };
 })();
 
 /***/ }),
@@ -45795,20 +45795,24 @@ return src;
 /* 40 */
 /***/ (function(module, exports) {
 
+
 (function () {
     'use strict';
 
     $(document).foundation();
 
     $(document).ready(function () {
+
+        //SWITCH PAGES
         switch ($("body").data("page-id")) {
             case 'home':
                 break;
             case 'adminCategories':
                 ESTORE.admin.update();
+                //ESTORE.admin.delete();
                 break;
             default:
-            // do nothing
+            //do nothing
         }
     });
 })();

@@ -4,8 +4,13 @@ namespace App\classes;
 
 class CSRFToken
 {
-    public static function _token(){
-        if (!Session::has('token')){
+    /**
+     * Generate Token
+     * @return mixed
+     */
+    public static function _token()
+    {
+        if(!Session::has('token')){
             $randomToken = base64_encode(openssl_random_pseudo_bytes(32));
             Session::add('token', $randomToken);
         }
@@ -13,16 +18,17 @@ class CSRFToken
     }
 
     /**
+     * Verify CSRF TOKEN
      * @param $requestToken
+     * @param $regenerate
      * @return bool
-     * @throws \Exception
-     *
-     *
      */
-    public static function verifyCSRFToken($requestToken){
-
-        if (Session::has('token') && Session::get('token') === $requestToken){
-            Session::remove('token');
+    public static function verifyCSRFToken($requestToken, $regenerate = true)
+    {
+        if(Session::has('token') && Session::get('token') === $requestToken){
+            if($regenerate){
+                Session::remove('token');
+            }
             return true;
         }
         return false;

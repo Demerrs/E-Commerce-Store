@@ -27,7 +27,7 @@
                 <form action="/admin/product/categories" method="post">
                     <div class="input-group">
                         <input type="text" class="input-group-field" name="name" placeholder="Category Name">
-                        <input type="hidden" name="token" data-token="<?php echo e(\App\classes\CSRFToken::_token()); ?>">
+                        <input type="hidden" name="token" value="<?php echo e(\App\classes\CSRFToken::_token()); ?>">
                         <div class="input-group-button">
                             <input type="submit" class="button" value="Create">
                         </div>
@@ -52,24 +52,19 @@
 
                                     <!--Edit Category Modal -->
                                     <div class="reveal" id="item-<?php echo e($category['id']); ?>"
-                                         data-reveal data-close-on-click="false" data-close-on-esc="false"
-                                         data-animation-in="scale-in-up">
-                                        <div class="notification callout primary"></div>
+                                         data-reveal data-close-on-click="false" data-close-on-esc="false">
                                         <h2>Edit Category</h2>
                                         <form>
                                             <div class="input-group">
-                                                <input type="text" id="item-name-<?php echo e($category['id']); ?>"
-                                                       name="name" value="<?php echo e($category['name']); ?>">
+                                                <input type="text" name="name" value="<?php echo e($category['name']); ?>">
+                                                <input type="hidden" name="token" data_token="<?php echo e(\App\Classes\CSRFToken::_token()); ?>">
                                                 <div>
                                                     <input type="submit" class="button update-category"
-                                                           id="<?php echo e($category['id']); ?>"
-                                                           name="token" data-token="<?php echo e(\App\Classes\CSRFToken::_token()); ?>"
-                                                           value="Update">
+                                                           id="<?php echo e($category['id']); ?>" value="Update">
                                                 </div>
                                             </div>
                                         </form>
-                                        <a href="/admin/product/categories" class="close-button"
-                                           aria-label="Close modal" type="button">
+                                        <a class="close-button" data-close aria-label="Close modal" type="button">
                                             <span aria-hidden="true">&times;</span>
                                         </a>
                                     </div>
