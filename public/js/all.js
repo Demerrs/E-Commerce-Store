@@ -45792,7 +45792,7 @@ module.exports = __webpack_amd_options__;
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                 success: function success(data) {
                     var response = jQuery.parseJSON(data);
-                    $(".notification").css("display", 'block').delay(4000).slideUp(300).html(response.success);
+                    $(".notification").css("display", 'block').removeClass('alert').addClass('primary').delay(4000).slideUp(300).html(response.success);
                 },
                 error: function error(request, _error) {
                     var errors = jQuery.parseJSON(request.responseText);
@@ -45802,7 +45802,7 @@ module.exports = __webpack_amd_options__;
                         li.appendChild(document.createTextNode(value));
                         ul.appendChild(li);
                     });
-                    $(".notification").css("display", 'block').delay(6000).slideUp(300).html(ul);
+                    $(".notification").css("display", 'block').removeClass('primary').addClass('alert').delay(6000).slideUp(300).html(ul);
                 }
             });
 

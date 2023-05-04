@@ -8703,8 +8703,35 @@ html.is-reveal-open body {
   display: none;
 }
 
+.reveal {
+  border: 0;
+  border-radius: 0.5rem;
+}
+
+.reveal:focus {
+  outline-style: none;
+}
+
+.reveal h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 .notification {
+  margin-top: 1.5rem;
   display: none;
+}
+
+.notification ul li {
+  list-style-type: none;
+}
+
+.fa-edit {
+  color: #8a6d4b;
+}
+
+.fa-times {
+  color: #ff0000;
 }
 
 .nav {

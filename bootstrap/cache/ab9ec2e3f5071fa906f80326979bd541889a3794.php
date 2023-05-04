@@ -54,7 +54,7 @@
                                     <div class="reveal" id="item-<?php echo e($category['id']); ?>"
                                          data-reveal data-close-on-click="false" data-close-on-esc="false"
                                     data-animation-in="fade-in" data-animation-out="scale-out-up">
-                                        <div class="notification">notif</div>
+                                        <div class="notification callout primary">notif</div>
                                         <h2>Edit Category</h2>
                                         <form>
                                             <div class="input-group">
