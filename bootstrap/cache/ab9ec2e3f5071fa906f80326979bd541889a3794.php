@@ -53,14 +53,17 @@
                                     <!--Edit Category Modal -->
                                     <div class="reveal" id="item-<?php echo e($category['id']); ?>"
                                          data-reveal data-close-on-click="false" data-close-on-esc="false">
+                                        <div class="notification">notif</div>
                                         <h2>Edit Category</h2>
                                         <form>
                                             <div class="input-group">
-                                                <input type="text" name="name" value="<?php echo e($category['name']); ?>">
-                                                <input type="hidden" name="token" data_token="<?php echo e(\App\Classes\CSRFToken::_token()); ?>">
+                                                <input type="text" id="item-name-<?php echo e($category['id']); ?>"
+                                                       name="name" value="<?php echo e($category['name']); ?>">
                                                 <div>
                                                     <input type="submit" class="button update-category"
-                                                           id="<?php echo e($category['id']); ?>" value="Update">
+                                                           id="<?php echo e($category['id']); ?>"
+                                                           data-token="<?php echo e(\App\Classes\CSRFToken::_token()); ?>"
+                                                           value="Update">
                                                 </div>
                                             </div>
                                         </form>

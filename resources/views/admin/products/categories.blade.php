@@ -54,14 +54,17 @@
                                     <!--Edit Category Modal -->
                                     <div class="reveal" id="item-{{$category['id']}}"
                                          data-reveal data-close-on-click="false" data-close-on-esc="false">
+                                        <div class="notification">notif</div>
                                         <h2>Edit Category</h2>
                                         <form>
                                             <div class="input-group">
-                                                <input type="text" name="name" value="{{ $category['name'] }}">
-                                                <input type="hidden" name="token" data_token="{{ \App\Classes\CSRFToken::_token() }}">
+                                                <input type="text" id="item-name-{{ $category['id'] }}"
+                                                       name="name" value="{{ $category['name'] }}">
                                                 <div>
                                                     <input type="submit" class="button update-category"
-                                                           id="{{$category['id']}}" value="Update">
+                                                           id="{{$category['id']}}"
+                                                           data-token="{{ \App\Classes\CSRFToken::_token() }}"
+                                                           value="Update">
                                                 </div>
                                             </div>
                                         </form>

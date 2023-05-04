@@ -1,5 +1,5 @@
-<div class="row expanded">
-
+<div class="grid-x grid-padding-x">
+    <div class="cell medium-11">
     <?php if(isset($errors)): ?>
     <div class="callout alert" data-closable>
         <?php $__currentLoopData = $errors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error_array): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -23,5 +23,5 @@
                 </button>
             </div>
         <?php endif; ?>
-
+    </div>
 </div>

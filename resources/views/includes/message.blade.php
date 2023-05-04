@@ -1,5 +1,5 @@
-<div class="row expanded">
-
+<div class="grid-x grid-padding-x">
+    <div class="cell medium-11">
     @if(isset($errors))
     <div class="callout alert" data-closable>
         @foreach($errors as $error_array)
@@ -22,5 +22,5 @@
                 </button>
             </div>
         @endif
-
+    </div>
 </div>
