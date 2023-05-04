@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/all.css">
     <script src="https://kit.fontawesome.com/c7c685c5a2.js" crossorigin="anonymous"></script>
-
 </head>
 <body data-page-id="@yield('data-page-id')">
 

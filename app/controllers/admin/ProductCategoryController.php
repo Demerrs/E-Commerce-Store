@@ -81,7 +81,7 @@ class ProductCategoryController
                 }
 
                 Category::where('id', $id)->update(['name' => $request->name]);
-                echo json_encode(['success' => 'Record Update Successfully']);
+                echo json_encode(['success' => 'Record Updated Successfully']);
                 exit;
             }
             throw new \Exception('Token mismatch');

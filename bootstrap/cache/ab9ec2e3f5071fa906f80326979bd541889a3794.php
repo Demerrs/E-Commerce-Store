@@ -52,7 +52,8 @@
 
                                     <!--Edit Category Modal -->
                                     <div class="reveal" id="item-<?php echo e($category['id']); ?>"
-                                         data-reveal data-close-on-click="false" data-close-on-esc="false">
+                                         data-reveal data-close-on-click="false" data-close-on-esc="false"
+                                    data-animation-in="fade-in" data-animation-out="scale-out-up">
                                         <div class="notification">notif</div>
                                         <h2>Edit Category</h2>
                                         <form>
@@ -67,7 +68,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="close-button" data-close aria-label="Close modal" type="button">
+                                        <a href="/admin/product/categories" class="close-button" data-close aria-label="Close modal" type="button">
                                             <span aria-hidden="true">&times;</span>
                                         </a>
                                     </div>

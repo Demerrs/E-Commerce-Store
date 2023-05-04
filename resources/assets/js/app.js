@@ -7,6 +7,7 @@ require('foundation-sites/dist/js/foundation.min');
 //other dependencies
 require('slick-carousel/slick/slick.min');
 require('chart.js/dist/Chart.bundle');
+require('jquery/dist/jquery.min');
 
 //custom js files
 require('../../assets/js/estore');
