@@ -20,3 +20,5 @@ $router->map('GET','/admin/category/[i:id]/selected','App\controllers\admin\Prod
 
 $router->map('GET','/admin/product/create','App\controllers\admin\ProductController@showCreateProductForm','create_product_form');
 $router->map('POST','/admin/product/create','App\controllers\admin\ProductController@store','create_product');
+
+$router->map('GET','/admin/products','App\controllers\admin\ProductController@show','show_products');
