@@ -74,7 +74,7 @@
                                         <div class="notification callout primary">notif</div>
                                         <h2>Edit Category</h2>
                                         <form>
-                                            <div class="input-group">
+                                            <div class="input-group" style="display: block">
                                                 <input type="text" id="item-name-{{ $category['id'] }}"
                                                        name="name" value="{{ $category['name'] }}">
                                                 <div>
@@ -98,7 +98,7 @@
                                         <div class="notification callout primary">notif</div>
                                         <h2>Add SubCategory</h2>
                                         <form>
-                                            <div class="input-group">
+                                            <div class="input-group" style="display: block">
                                                 <input type="text" id="subcategory-name-{{ $category['id'] }}">
                                                 <div>
                                                     <input type="submit" class="button add-subcategory"
@@ -165,12 +165,25 @@
                                         <div class="notification callout primary">notif</div>
                                         <h2>Edit SubCategory</h2>
                                         <form>
-                                            <div class="input-group">
+                                            <div class="input-group" style="display: block">
                                                 <input type="text" id="item-subcategory-name-{{ $subcategory['id'] }}"
                                                        value="{{ $subcategory['name'] }}">
+
+                                                <label>Change Category
+                                                    <select id="item-category-{{ $subcategory['category_id'] }}">
+                                                        @foreach(\App\models\Category::all() as $category)
+                                                            @if($category->id == $subcategory['category_id'])
+                                                                <option selected="selected" value="{{ $category->id }}">{{ $category->name }}</option>
+                                                            @endif
+                                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </label>
+
                                                 <div>
                                                     <input type="submit" class="button update-subcategory"
                                                            id="{{$subcategory['id']}}"
+                                                           data-category-id="{{ $subcategory['category_id'] }}"
                                                            data-token="{{ \App\Classes\CSRFToken::_token() }}"
                                                            value="Update">
                                                 </div>
