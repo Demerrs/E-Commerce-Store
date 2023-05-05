@@ -45816,9 +45816,7 @@ module.exports = __webpack_amd_options__;
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {
-(function () {
-
+/* WEBPACK VAR INJECTION */(function($) {(function () {
     'use strict';
 
     ESTORE.admin.delete = function () {

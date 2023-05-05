@@ -5,11 +5,12 @@ $router->map('POST','/admin','App\controllers\admin\DashboardController@get','ad
 
 //product management
 $router->map('GET','/admin/product/categories','App\controllers\admin\ProductCategoryController@show','product_category');
-$router->map('POST','/admin/product/categories','App\controllers\admin\ProductCategoryController@store','create_product_category');
 
+$router->map('POST','/admin/product/categories','App\controllers\admin\ProductCategoryController@store','create_product_category');
 $router->map('POST','/admin/product/categories/[i:id]/edit','App\controllers\admin\ProductCategoryController@edit','edit_product_category');
 $router->map('POST','/admin/product/categories/[i:id]/delete','App\controllers\admin\ProductCategoryController@delete','delete_product_category');
 
 //subcategory
 $router->map('POST','/admin/product/subcategory/create','App\controllers\admin\SubCategoryController@store','create_subcategory');
 $router->map('POST','/admin/product/subcategory/[i:id]/edit','App\controllers\admin\SubCategoryController@edit','edit_subcategory');
+$router->map('POST','/admin/product/subcategory/[i:id]/delete','App\controllers\admin\SubCategoryController@delete','delete_subcategory');
