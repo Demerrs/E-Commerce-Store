@@ -11,7 +11,7 @@ require('jquery/dist/jquery.min');
 
 //custom js files
 require('../../assets/js/estore');
-// require('../../assets/js/admin/create');
+require('../../assets/js/admin/create');
 // require('../../assets/js/admin/dashboard');
 require('../../assets/js/admin/delete');
 // require('../../assets/js/admin/events');

@@ -11955,7 +11955,7 @@ __webpack_require__(38);
 
 //custom js files
 __webpack_require__(40);
-// require('../../assets/js/admin/create');
+__webpack_require__(50);
 // require('../../assets/js/admin/dashboard');
 __webpack_require__(41);
 // require('../../assets/js/admin/events');
@@ -45853,6 +45853,7 @@ module.exports = __webpack_amd_options__;
             case 'adminCategories':
                 ESTORE.admin.update();
                 ESTORE.admin.delete();
+                ESTORE.admin.create();
                 break;
             default:
             //do nothing
@@ -45866,6 +45867,53 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($, jQuery) {(function () {
+    'use strict';
+
+    ESTORE.admin.create = function () {
+
+        //create product subcategory
+        $(".add-subcategory").on('click', function (e) {
+            var token = $(this).data('token');
+            var category_id = $(this).attr('id');
+            var name = $("#subcategory-name-" + category_id).val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/admin/product/subcategory/create',
+                data: { token: token, name: name, category_id: category_id },
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                success: function success(data) {
+                    var response = jQuery.parseJSON(data);
+                    $(".notification").css("display", 'block').removeClass('alert').addClass('primary').delay(4000).slideUp(300).html(response.success);
+                },
+                error: function error(request, _error) {
+                    var errors = jQuery.parseJSON(request.responseText);
+                    var ul = document.createElement('ul');
+                    $.each(errors, function (key, value) {
+                        var li = document.createElement('li');
+                        li.appendChild(document.createTextNode(value));
+                        ul.appendChild(li);
+                    });
+                    $(".notification").css("display", 'block').removeClass('primary').addClass('alert').delay(6000).slideUp(300).html(ul);
+                }
+            });
+
+            e.preventDefault();
+        });
+    };
+})();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(1)))
 
 /***/ })
 /******/ ]);
