@@ -11935,7 +11935,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(43);
+module.exports = __webpack_require__(44);
 
 
 /***/ }),
@@ -11957,15 +11957,15 @@ __webpack_require__(38);
 __webpack_require__(40);
 // require('../../assets/js/admin/create');
 // require('../../assets/js/admin/dashboard');
-// require('../../assets/js/admin/delete');
-// require('../../assets/js/admin/events');
 __webpack_require__(41);
+// require('../../assets/js/admin/events');
+__webpack_require__(42);
 // require('../../assets/js/pages/cart');
 // require('../../assets/js/pages/home_products');
 // require('../../assets/js/pages/lib');
 // require('../../assets/js/pages/product_details');
 // require('../../assets/js/pages/slider');
-__webpack_require__(42);
+__webpack_require__(43);
 
 /***/ }),
 /* 12 */
@@ -45774,6 +45774,28 @@ module.exports = __webpack_amd_options__;
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function($) {
+(function () {
+
+    'use strict';
+
+    ESTORE.admin.delete = function () {
+        $('table[data-form="deleteForm"]').on('click', '.delete-item', function (e) {
+            e.preventDefault();
+            var form = $(this);
+
+            $('#confirm').foundation('open').on('click', '#delete-btn', function () {
+                form.submit();
+            });
+        });
+    };
+})();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /* WEBPACK VAR INJECTION */(function($, jQuery) {(function () {
     'use strict';
 
@@ -45813,7 +45835,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(1)))
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -45830,7 +45852,7 @@ module.exports = __webpack_amd_options__;
                 break;
             case 'adminCategories':
                 ESTORE.admin.update();
-                //ESTORE.admin.delete();
+                ESTORE.admin.delete();
                 break;
             default:
             //do nothing
@@ -45840,7 +45862,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

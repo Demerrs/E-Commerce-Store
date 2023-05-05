@@ -12,7 +12,7 @@
                 break;
             case 'adminCategories':
                 ESTORE.admin.update();
-                //ESTORE.admin.delete();
+                ESTORE.admin.delete();
                 break;
             default:
             //do nothing
