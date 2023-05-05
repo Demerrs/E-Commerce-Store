@@ -11935,7 +11935,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -11958,14 +11958,14 @@ __webpack_require__(40);
 __webpack_require__(41);
 // require('../../assets/js/admin/dashboard');
 __webpack_require__(42);
-// require('../../assets/js/admin/events');
 __webpack_require__(43);
+__webpack_require__(44);
 // require('../../assets/js/pages/cart');
 // require('../../assets/js/pages/home_products');
 // require('../../assets/js/pages/lib');
 // require('../../assets/js/pages/product_details');
 // require('../../assets/js/pages/slider');
-__webpack_require__(44);
+__webpack_require__(45);
 
 /***/ }),
 /* 12 */
@@ -45837,6 +45837,39 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($, jQuery) {(function () {
+
+    'use strict';
+
+    ESTORE.admin.changeEvent = function () {
+        $('#product-category').on('change', function () {
+            var category_id = $('#product-category' + ' option:selected').val();
+            $('#product-subcategory').html('Select Subcategory');
+
+            $.ajax({
+                type: 'GET',
+                url: '/admin/category/' + category_id + '/selected',
+                data: { category_id: category_id },
+                success: function success(response) {
+                    var subcategories = jQuery.parseJSON(response);
+                    if (subcategories.length) {
+                        $.each(subcategories, function (key, value) {
+                            $('#product-subcategory').append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    } else {
+                        $('#product-subcategory').append('<option value="">No record found</option>');
+                    }
+                }
+            });
+        });
+    };
+})();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(1)))
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($, jQuery) {(function () {
     'use strict';
 
     ESTORE.admin.update = function () {
@@ -45911,7 +45944,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(1)))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -45926,6 +45959,9 @@ module.exports = __webpack_amd_options__;
         switch ($("body").data("page-id")) {
             case 'home':
                 break;
+            case 'adminProduct':
+                ESTORE.admin.changeEvent();
+                break;
             case 'adminCategories':
                 ESTORE.admin.update();
                 ESTORE.admin.delete();
@@ -45939,7 +45975,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
