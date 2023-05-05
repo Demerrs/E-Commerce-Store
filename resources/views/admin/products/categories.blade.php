@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="category">
-        <div class="grid-x grid-padding-x">
+        <div class="grid-padding-x">
             <div class="cell medium-11">
                 <h2>Product Categories</h2> <hr />
             </div>
@@ -40,14 +40,22 @@
         <div class="grid-x grid-padding-x">
             <div class="small-12 medium-11 cell">
                 @if(count($categories))
-                    <table class="hover " data-form="deleteForm">
+                    <table class="hover unstriped" data-form="deleteForm">
                         <tbody>
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Date Created</th>
+                            <th width="70">Action</th>
+                        </tr>
+                        </thead>
                         @foreach($categories as $category)
                             <tr>
                                 <td>{{ $category['name'] }}</td>
                                 <td>{{ $category['slug'] }}</td>
                                 <td>{{ $category['added'] }}</td>
-                                <td width="70" class="text-right" style="padding-left: 5px;">
+                                <td width="50" class="text-right">
                                     <span data-tooltip aria-haspopup="true"
                                           class="has-tip top" data-disable-hover="false"
                                           tabindex="1" title="Add SubCategory">
@@ -120,7 +128,7 @@
                     </table>
                     {!! $links !!}
                 @else
-                    <h3>You have not created any category</h3>
+                    <h2>You have not created any category</h2>
                 @endif
             </div>
         </div>
@@ -129,21 +137,29 @@
     <div class="subcategory">
         <div class="grid-x grid-padding-x">
             <div class="cell medium-11">
-                <h2>Product SubCategories</h2> <hr />
+                <h2>Subcategories</h2> <hr />
             </div>
         </div>
 
         <div class="grid-x grid-padding-x">
             <div class="small-12 medium-11 cell">
                 @if(count($subcategories))
-                    <table class="hover " data-form="deleteForm">
+                    <table class="hover unstriped" data-form="deleteForm">
+                        <thead>
+                        <tr>
+                        <th>Name</th>
+                        <th>Slug</th>
+                        <th>Date Created</th>
+                        <th width="30">Action</th>
+                        </tr>
+                        </thead>
                         <tbody>
                         @foreach($subcategories as $subcategory)
                             <tr>
                                 <td>{{ $subcategory['name'] }}</td>
                                 <td>{{ $subcategory['slug'] }}</td>
                                 <td>{{ $subcategory['added'] }}</td>
-                                <td width="70" class="text-right" style="padding-left: 5px;">
+                                <td width="20" class="text-right" style="padding-left: 5px;">
                                     <span data-tooltip aria-haspopup="true"
                                           class="has-tip top" data-disable-hover="false"
                                           tabindex="1" title="Edit SubCategory">
@@ -201,7 +217,7 @@
                     </table>
                     {!! $subcategories_links !!}
                 @else
-                    <h3>You have not created any subcategory</h3>
+                    <h2>You have not created any subcategory</h2>
                 @endif
             </div>
         </div>

@@ -8703,6 +8703,29 @@ html.is-reveal-open body {
   display: none;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+table th,
+table tr,
+table td {
+  font-size: 1rem;
+  padding: 0.3rem;
+  border: 1px solid #c0c0c0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+hr {
+  margin: 0 0 1rem 0;
+}
+
 .reveal {
   border: 0;
   border-radius: 0.5rem;
@@ -8714,7 +8737,7 @@ html.is-reveal-open body {
 
 .reveal h2 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .notification {
@@ -8727,7 +8750,7 @@ html.is-reveal-open body {
 }
 
 .fa-edit {
-  color: #8a6d4b;
+  color: #8a6d3b;
 }
 
 .fa-times {
