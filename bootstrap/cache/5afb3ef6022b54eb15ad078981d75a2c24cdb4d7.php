@@ -7,7 +7,6 @@
 
 
     <div class="home">
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
         <section class="hero">
             <div class="hero-slider">
@@ -23,10 +22,9 @@
             </div>
         </section>
 
-
     </div>
 
-    <script>
+    <script type="text/javascript">
         const app = Vue.createApp({
             data() {
                 return {
@@ -36,6 +34,7 @@
         })
         app.mount('#root')
     </script>
+
 
 <?php $__env->stopSection(); ?>
 

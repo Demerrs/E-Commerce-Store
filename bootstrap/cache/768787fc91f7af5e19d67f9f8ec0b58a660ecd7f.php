@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/all.css">
     <script src="https://kit.fontawesome.com/c7c685c5a2.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="/images/ecommerce.png">
 </head>
 <body data-page-id="<?php echo $__env->yieldContent('data-page-id'); ?>">
 
