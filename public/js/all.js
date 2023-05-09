@@ -45961,6 +45961,7 @@ module.exports = __webpack_amd_options__;
                 break;
             case 'adminProduct':
                 ESTORE.admin.changeEvent();
+                ESTORE.admin.delete();
                 break;
             case 'adminCategories':
                 ESTORE.admin.update();

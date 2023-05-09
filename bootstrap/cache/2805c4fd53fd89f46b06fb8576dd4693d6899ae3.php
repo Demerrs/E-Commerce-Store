@@ -84,6 +84,22 @@
                 </div>
             </div>
         </form>
+        <!-- Delete button -->
+        <div class="grid-x">
+            <div class="small-12 medium-11">
+                <table data-form="deleteForm">
+                    <tr style="border: 1px solid #ffffff !important">
+                        <td style="border: 1px solid #ffffff !important">
+                            <form method="POST" action="/admin/product/<?php echo e($product->id); ?>/delete"
+                                  class="delete-item">
+                                <input type="hidden" name="token" value="<?php echo e(\App\Classes\CSRFToken::_token()); ?>">
+                                <button type="submit" class="button alert">Delete Product</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
     <?php echo $__env->make('includes.delete-modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>

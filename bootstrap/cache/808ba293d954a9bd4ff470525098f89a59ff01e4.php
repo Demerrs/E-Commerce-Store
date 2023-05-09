@@ -51,7 +51,7 @@
                                     <span data-tooltip aria-haspopup="true"
                                           class="has-tip top" data-disable-hover="false"
                                           tabindex="1" title="Edit Product">
-                                    <a href="/admin/product/<?php echo e($product['id']); ?>/edit"><i class="fa fa-edit"></i></a>
+                                    <a href="/admin/product/<?php echo e($product['id']); ?>/edit">Edit <i class="fa fa-edit"></i></a>
                                     </span>
                                 </td>
                             </tr>
