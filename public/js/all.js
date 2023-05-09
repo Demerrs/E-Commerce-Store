@@ -11935,7 +11935,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(48);
 
 
 /***/ }),
@@ -11961,11 +11961,11 @@ __webpack_require__(42);
 __webpack_require__(43);
 __webpack_require__(44);
 // require('../../assets/js/pages/cart');
-// require('../../assets/js/pages/home_products');
+__webpack_require__(45);
 // require('../../assets/js/pages/lib');
 // require('../../assets/js/pages/product_details');
-__webpack_require__(45);
 __webpack_require__(46);
+__webpack_require__(47);
 
 /***/ }),
 /* 12 */
@@ -45946,6 +45946,35 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 /* 45 */
+/***/ (function(module, exports) {
+
+(function () {
+    'use strict';
+
+    ESTORE.homeslider.homePageProducts = function () {
+        var app = new Vue({
+            el: '#root',
+            data: {
+                featured: [],
+                loading: false
+            },
+            methods: {
+                getFeaturedProducts: function getFeaturedProducts() {
+                    this.loading = true;
+                    axios.get('/featured').then(function (response) {
+                        console.log(response.data);
+                    });
+                }
+            },
+            created: function created() {
+                this.getFeaturedProducts();
+            }
+        });
+    };
+})();
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {(function () {
@@ -45966,7 +45995,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -45981,6 +46010,7 @@ module.exports = __webpack_amd_options__;
         switch ($("body").data("page-id")) {
             case 'home':
                 ESTORE.homeslider.initCarousel();
+                ESTORE.homeslider.homePageProducts();
                 break;
             case 'adminProduct':
                 ESTORE.admin.changeEvent();
@@ -45999,7 +46029,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

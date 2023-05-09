@@ -10,6 +10,7 @@
         switch ($("body").data("page-id")){
             case 'home':
                 ESTORE.homeslider.initCarousel();
+                ESTORE.homeslider.homePageProducts();
                 break;
             case 'adminProduct':
                 ESTORE.admin.changeEvent();
