@@ -16,6 +16,10 @@ $logo-img-folder: 'images';
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
+
+    @include breakpoint(small only){
+      display: none;
+    }
   }
 
   .toggle{
@@ -94,6 +98,13 @@ $logo-img-folder: 'images';
 
       @include breakpoint(small only){
         text-align: left;
+      }
+    }
+    .top-bar-left{
+      .fixx{
+        @include breakpoint(small only){
+          display: block;
+        }
       }
     }
   }

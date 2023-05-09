@@ -6,8 +6,16 @@
 
 
 
-    <div class="home"><br><br><br><br><br><br><br>
+    <div class="home">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <section class="hero">
+            <div class="hero-slider">
+                <div><img src="/images/sliders/slide_1.jpg" alt="MyStore"></div>
+                <div><img src="/images/sliders/slide_2.jpg" alt="MyStore"></div>
+                <div><img src="/images/sliders/slide_3.jpg" alt="MyStore"></div>
+            </div>
+        </section>
 
         <section>
             <div id="root">

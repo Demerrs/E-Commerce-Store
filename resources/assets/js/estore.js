@@ -3,6 +3,7 @@
 
     window.ESTORE = {
         global: {},
-        admin: {}
+        admin: {},
+        homeslider: {}
     };
 })();

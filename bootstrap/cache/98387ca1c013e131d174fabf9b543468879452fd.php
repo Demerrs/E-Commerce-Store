@@ -1,28 +1,28 @@
 <?php $categories = \App\models\Category::with('subCategories')->get(); ?>
 
 <header class="navigation">
-    <div class="title-bar" data-responsive-toggle="acme-menu" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle="acme-menu"></button>
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="main-menu"></button>
         <div class="title-bar-title"><a href="/">Ecommerce Store</a> </div>
     </div>
 
-    <div class="top-bar" id="acme-menu">
+    <div class="top-bar" id="main-menu">
         <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
+            <ul class="dropdown menu fixx" data-dropdown-menu data-click-open="true" data-disable-hover="true" data-close-on-click-inside="false">
                 <li class="menu-text logo" onclick="location.href='/'"></li>
-                <li><a href="/products">Acme Products</a></li>
+                <li><a href="/products" class="small-12 cell">EStore Products</a></li>
                 <?php if(count($categories)): ?>
                     <li>
-                        <a href="/products/category">Categories</a>
+                        <a href="#">Categories</a>
                         <ul class="menu vertical dropdown">
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li>
-                                    <a href="/products/category/<?php echo e($category->slug); ?>"><?php echo e($category->name); ?></a>
+                                    <a href="#"><?php echo e($category->name); ?></a>
                                     <?php if(count($category->subCategories)): ?>
                                         <ul class="menu vertical">
                                             <?php $__currentLoopData = $category->subCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <li>
-                                                    <a href="/products/category/<?php echo e($category->slug); ?>/<?php echo e($subCategory->slug); ?>">
+                                                    <a href="$">
                                                         <?php echo e($subCategory->name); ?>
 
                                                     </a>
