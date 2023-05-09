@@ -150,13 +150,14 @@ class ProductController extends BaseController
                     $response =$validate->getErrorMessages();
                     count($file_error) ? $errors = array_merge($response,$file_error) : $errors = $response;
 
+
                     return view('admin/products/create',[
 
                         'categories' => $this->categories, 'errors' => $errors
                     ]);
                 }
 
-                $product =Product::findOrFail($request->product_id);
+                $product = Product::findOrFail($request->product_id);
 
                 $product->name = $request->name;
                 $product->description = $request->description;
