@@ -45975,8 +45975,9 @@ module.exports = __webpack_amd_options__;
                     return ESTORE.module.truncateString(string, value);
                 },
                 addToCart: function addToCart(id) {
-                    var message = ESTORE.module.addItemToCart(id);
-                    alert(message);
+                    ESTORE.module.addItemToCart(id, function (message) {
+                        $(".notify").css("display", 'block').removeClass('alert').addClass('primary').delay(4000).slideUp(300).html(message);
+                    });
                 },
                 loadMoreProducts: function loadMoreProducts() {
                     var token = $('.display-products').data('token');
@@ -46006,9 +46007,9 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 /* 46 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-(function () {
+/* WEBPACK VAR INJECTION */(function($) {(function () {
     'use strict';
 
     ESTORE.module = {
@@ -46019,11 +46020,21 @@ module.exports = __webpack_amd_options__;
                 return string;
             }
         },
-        addItemToCart: function addItemToCart(id) {
-            return id;
+        addItemToCart: function addItemToCart(id, callback) {
+            var token = $('.display-products').data('token');
+
+            if (token == null || !token) {
+                token = $('.product').data('token');
+            }
+
+            var postData = $.param({ product_id: id, token: token });
+            axios.post('/cart', postData).then(function (response) {
+                callback(response.data.success);
+            });
         }
     };
 })();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 47 */
@@ -46060,8 +46071,9 @@ module.exports = __webpack_amd_options__;
                     return ESTORE.module.truncateString(string, value);
                 },
                 addToCart: function addToCart(id) {
-                    var message = ESTORE.module.addItemToCart(id);
-                    alert(message);
+                    ESTORE.module.addItemToCart(id, function (message) {
+                        $(".notify").css("display", 'block').removeClass('alert').addClass('primary').delay(4000).slideUp(300).html(message);
+                    });
                 }
             },
             created: function created() {

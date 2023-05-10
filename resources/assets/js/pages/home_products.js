@@ -27,8 +27,11 @@
                     return ESTORE.module.truncateString(string, value);
                 },
                 addToCart: function(id){
-                    var message = ESTORE.module.addItemToCart(id);
-                    alert(message);
+                    ESTORE.module.addItemToCart(id, function (message){
+                        $(".notify").css("display", 'block').removeClass('alert')
+                            .addClass('primary').delay(4000).slideUp(300)
+                            .html(message);
+                    });
                 },
                 loadMoreProducts: function (){
                     var token = $('.display-products').data('token');

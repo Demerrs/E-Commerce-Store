@@ -10,4 +10,8 @@ $router->map('POST','/load-more','App\controllers\IndexController@loadMoreProduc
 $router->map('GET','/product/[i:id]','App\controllers\ProductController@show','product');
 $router->map('GET','/product-details/[i:id]','App\controllers\ProductController@get','product_details');
 
+
+
+$router->map('POST','/cart','App\controllers\CartController@addItem','add_cart_item');
+
 require_once __DIR__. '/admin_routes.php';
