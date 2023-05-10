@@ -45963,6 +45963,8 @@ module.exports = __webpack_amd_options__;
                     this.loading = true;
                     axios.get('/featured').then(function (response) {
                         console.log(response.data);
+                        app.featured = response.data.featured;
+                        app.loading = false;
                     });
                 }
             },

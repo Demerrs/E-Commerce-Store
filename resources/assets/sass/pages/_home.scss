@@ -1,5 +1,12 @@
 .home{
 
+
+  .card {
+    margin: 10px;
+    padding: 10px;
+  }
+
+
   padding-top: 3.6rem;
 
   @include breakpoint(small only){
