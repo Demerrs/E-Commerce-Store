@@ -20,8 +20,8 @@
 
         <section class="display-products" data-token="{{ $token }}" id="root">
             <h2 style="padding-left: 10px">Featured Products</h2>
-            <div class="row medium-up-4 grid-x grid-padding-x">
-                <div class="cell small-12" v-for="feature in featured">
+            <div class="row medium-up-2 large-up-4 grid-x grid-padding-x">
+                <div class="cell small-12" v-cloak v-for="feature in featured">
                     <a :href="'/product/' + feature.id">
                         <div class="card"  data-equalizer-watch>
                             <div class="card-section">
@@ -44,8 +44,8 @@
             </div>
 
             <h2 style="padding-left: 10px">Products Picks</h2>
-            <div class="row medium-up-4 grid-x grid-padding-x">
-                <div class="cell small-12" v-for="product in products">
+            <div class="row medium-up-2 large-up-4 grid-x grid-padding-x">
+                <div class="cell small-12" v-cloak v-for="product in products">
                     <a :href="'/product/' + product.id">
                         <div class="card"  data-equalizer-watch>
                             <div class="card-section">
@@ -53,7 +53,7 @@
                             </div>
                             <div class="card-section">
                                 <p>
-                                    @{{ stringLimit(product.name, 30) }}
+                                    @{{ stringLimit(product.name, 29) }}
                                 </p>
                                 <a :href="'/product/' + product.id" class="button more grid-x">
                                     See More
