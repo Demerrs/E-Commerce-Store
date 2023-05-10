@@ -6,7 +6,7 @@
     <title>Admin Panel - <?php echo $__env->yieldContent('title'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/all.css">
-    <script src="https://kit.fontawesome.com/c7c685c5a2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="/images/ecommerce.png">
 </head>
 <body data-page-id="<?php echo $__env->yieldContent('data-page-id'); ?>">

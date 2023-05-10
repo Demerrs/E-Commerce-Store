@@ -45946,9 +45946,9 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 /* 45 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-(function () {
+/* WEBPACK VAR INJECTION */(function($) {(function () {
     'use strict';
 
     ESTORE.homeslider.homePageProducts = function () {
@@ -45957,6 +45957,7 @@ module.exports = __webpack_amd_options__;
             data: {
                 featured: [],
                 products: [],
+                count: 0,
                 loading: false
             },
             methods: {
@@ -45965,6 +45966,7 @@ module.exports = __webpack_amd_options__;
                     axios.all([axios.get('/featured'), axios.get('/get-products')]).then(axios.spread(function (featuredResponse, productsResponse) {
                         app.featured = featuredResponse.data.featured;
                         app.products = productsResponse.data.products;
+                        app.count = productsResponse.data.count;
                         app.loading = false;
                     }));
                 },
@@ -45974,14 +45976,32 @@ module.exports = __webpack_amd_options__;
                     } else {
                         return string;
                     }
+                },
+                loadMoreProducts: function loadMoreProducts() {
+                    var token = $('.display-products').data('token');
+                    this.loading = true;
+                    var data = $.param({ next: 2, token: token, count: app.count });
+                    axios.post('/load-more', data).then(function (response) {
+                        app.products = response.data.products;
+                        app.count = response.data.count;
+                        app.loading = false;
+                    });
                 }
             },
             created: function created() {
                 this.getFeaturedProducts();
+            },
+            mounted: function mounted() {
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                        app.loadMoreProducts();
+                    }
+                });
             }
         });
     };
 })();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 46 */

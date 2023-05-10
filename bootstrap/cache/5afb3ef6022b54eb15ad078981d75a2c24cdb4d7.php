@@ -16,7 +16,7 @@
             </div>
         </section>
 
-        <section class="display-products" id="root">
+        <section class="display-products" data-token="<?php echo e($token); ?>" id="root">
             <h2 style="padding-left: 10px">Featured Products</h2>
             <div class="row medium-up-4 grid-x grid-padding-x">
                 <div class="cell small-12" v-for="feature in featured">
@@ -64,6 +64,14 @@
                     </a>
                 </div>
             </div>
+
+            <div class="text-center">
+                <i v-show="loading" class="fa fa-spinner fa-spin" style="font-size: 3rem; padding-bottom: 3rem;
+                position: fixed; top: 60%; bottom: 20%; color: #0a2b1d;">
+
+                </i>
+            </div>
+
         </section>
 
     </div>

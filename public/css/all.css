@@ -8824,6 +8824,7 @@ hr {
 .navigation {
   z-index: 1000;
   width: 100%;
+  min-width: 960px;
   top: 0;
   position: fixed;
   font-family: "Open Sans", sans-serif;
@@ -9055,7 +9056,7 @@ hr {
 
 .home .display-products .card .card-section img {
   border-radius: 0.5rem;
-  width: 800px !important;
+  width: 100% !important;
   height: 450px !important;
 }
 

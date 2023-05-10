@@ -163,7 +163,7 @@
                                     <span data-tooltip aria-haspopup="true"
                                           class="has-tip top" data-disable-hover="false"
                                           tabindex="1" title="Edit SubCategory">
-                                    <a data-open="item-subcategory-<?php echo e($subcategory['id']); ?>"><i class="fa fa-edit"></i></a>
+                                    <a data-open="item-subcategory-<?php echo e($subcategory['id']); ?>"><i class="ffa-li fa fa-spinner fa-spin"></i></a>
                                     </span>
                                     <span style="display: inline-block;" data-tooltip aria-haspopup="true"
                                           class="has-tip top" data-disable-hover="false"
