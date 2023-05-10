@@ -8941,11 +8941,6 @@ hr {
   padding-top: 3.6rem;
 }
 
-.home .card {
-  margin: 10px;
-  padding: 10px;
-}
-
 .home .display-products {
   white-space: nowrap;
   overflow-x: auto;
@@ -8955,8 +8950,9 @@ hr {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
-  margin-right: 10px;
-  width: 25%;
+  margin-right: 45px;
+  margin-left: 20px;
+  width: 20%;
 }
 
 .home .card-section .button {
@@ -8965,11 +8961,6 @@ hr {
 }
 
 @media print, screen and (max-width: 39.99875em) {
-  .home .card {
-    margin: 10px;
-    padding: 10px;
-  }
-
   .home .display-products {
     white-space: normal;
     overflow-x: auto;
@@ -8980,7 +8971,41 @@ hr {
     vertical-align: top;
     white-space: normal;
     margin-right: 10px;
+    margin-left: 0px;
     width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .home .display-products .cell {
+    margin-right: 20px;
+    margin-left: 10px;
+    width: 45%;
+  }
+
+  .home .card-section .button {
+    margin-top: 20px;
+  }
+
+  .home .display-products {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .home .card {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .home .card .card-section {
+    margin-bottom: 0.5rem;
+  }
+
+  .home .card .card-section img {
+    margin-left: 0;
+    border-radius: 0.5rem;
+    width: 300px !important;
+    height: 350px !important;
   }
 }
 
@@ -8998,6 +9023,41 @@ hr {
 
 .home .hero .hero-slider img {
   width: 100% !important;
+}
+
+.home .display-products {
+  padding: 2rem;
+}
+
+@media print, screen and (max-width: 39.99875em) {
+  .home .display-products {
+    padding: 0.7rem;
+    text-align: center;
+  }
+}
+
+.home .display-products a {
+  color: #0a0a0a;
+}
+
+.home .display-products a:focus {
+  outline-style: none;
+}
+
+.home .display-products .card {
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.home .display-products .card .card-section {
+  margin-bottom: 0.7rem;
+}
+
+.home .display-products .card .card-section img {
+  margin-left: 8%;
+  border-radius: 0.5rem;
+  width: 420px !important;
+  height: 450px !important;
 }
 
 .slide-in-down.mui-enter {

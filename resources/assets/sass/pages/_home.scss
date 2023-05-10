@@ -1,11 +1,6 @@
 .home{
 
-
-    .card {
-      margin: 10px;
-      padding: 10px;
-    }
-
+  //fixind pc styles to show like a normal one
     .display-products {
       white-space: nowrap;
       overflow-x: auto;
@@ -15,8 +10,9 @@
       display: inline-block;
       vertical-align: top;
       white-space: normal;
-      margin-right: 10px;
-      width: 25%;
+      margin-right: 45px;
+      margin-left: 20px;
+      width: 20%;
     }
 
   .card-section .button {
@@ -24,12 +20,8 @@
     margin-top: 10px;
   }
 
+  //fixind mobile
   @include breakpoint(small only){
-
-    .card {
-      margin: 10px;
-      padding: 10px;
-    }
 
     .display-products {
       white-space: normal;
@@ -41,17 +33,55 @@
       vertical-align: top;
       white-space: normal;
       margin-right: 10px;
+      margin-left: 0px;
       width: 100%;
+    }
+  }
+
+  //Displating for tablets
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .display-products .cell {
+      margin-right: 20px;
+      margin-left: 10px;
+      width: 45%;
+    }
+
+    .card-section .button {
+      margin-top: 20px;
+    }
+
+    .display-products{
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .card{
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+
+      .card-section{
+        margin-bottom: 0.5rem;
+
+        img{
+          margin-left: 0;
+          border-radius: 0.5rem;
+          width: 300px !important;
+          height: 350px !important;
+        }
+      }
     }
   }
 
 
   padding-top: 3.6rem;
 
+  //mobile view
   @include breakpoint(small only){
     padding-top: 2.5rem;
   }
 
+  //general
   .hero{
     width: 100%;
     box-sizing: border-box;
@@ -59,6 +89,38 @@
     .hero-slider{
       img{
         width: 100% !important;
+      }
+    }
+  }
+//mobile view
+  .display-products{
+    padding: 2rem;
+    @include breakpoint(small only){
+      padding: 0.7rem;
+      text-align: center;
+    }
+
+    a{
+      color: #0a0a0a;
+
+      &:focus{
+        outline-style: none;
+      }
+    }
+
+    .card{
+      padding: 0.9rem;
+      margin-bottom: 1rem;
+
+      .card-section{
+        margin-bottom: 0.7rem;
+
+        img{
+          margin-left: 8%;
+          border-radius: 0.5rem;
+          width: 420px !important;
+          height: 450px !important;
+        }
       }
     }
   }

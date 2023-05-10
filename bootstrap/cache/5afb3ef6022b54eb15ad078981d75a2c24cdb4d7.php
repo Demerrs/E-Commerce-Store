@@ -18,7 +18,7 @@
 
         <section class="display-products" id="root">
             <h2 style="padding-left: 10px">Featured Products</h2>
-            <div class="row medium-up-4">
+            <div class="row medium-up-4 grid-x grid-padding-x">
                 <div class="cell small-12" v-for="feature in featured">
                     <a :href="'/product/' + feature.id">
                         <div class="card"  data-equalizer-watch>
