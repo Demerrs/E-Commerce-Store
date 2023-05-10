@@ -1,6 +1,10 @@
 .product {
   padding: 6rem;
 
+  @include breakpoint(small only){
+    margin-top: 2rem;
+  }
+
   //mobile view
   @include breakpoint(small only) {
     text-align: center;
@@ -59,9 +63,4 @@
   }
 
 
-.row.collapse {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
+

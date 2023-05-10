@@ -8859,7 +8859,6 @@ hr {
 .navigation {
   z-index: 1000;
   width: 100%;
-  min-width: 960px;
   top: 0;
   position: fixed;
   font-family: "Open Sans", sans-serif;
@@ -9156,6 +9155,12 @@ hr {
 
 @media print, screen and (max-width: 39.99875em) {
   .product {
+    margin-top: 2rem;
+  }
+}
+
+@media print, screen and (max-width: 39.99875em) {
+  .product {
     text-align: center;
     padding: 0.7rem;
   }
@@ -9210,20 +9215,6 @@ hr {
 
 .button:hover {
   background-color: #e30000;
-}
-
-.row.collapse {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .slide-in-down.mui-enter {
