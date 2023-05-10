@@ -11935,7 +11935,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(49);
+module.exports = __webpack_require__(50);
 
 
 /***/ }),
@@ -11962,10 +11962,10 @@ __webpack_require__(43);
 __webpack_require__(44);
 // require('../../assets/js/pages/cart');
 __webpack_require__(45);
-__webpack_require__(55);
 __webpack_require__(46);
 __webpack_require__(47);
 __webpack_require__(48);
+__webpack_require__(49);
 
 /***/ }),
 /* 12 */
@@ -46006,6 +46006,27 @@ module.exports = __webpack_amd_options__;
 
 /***/ }),
 /* 46 */
+/***/ (function(module, exports) {
+
+(function () {
+    'use strict';
+
+    ESTORE.module = {
+        truncateString: function limit(string, value) {
+            if (string.length > value) {
+                return string.substring(0, value) + '...';
+            } else {
+                return string;
+            }
+        },
+        addItemToCart: function addItemToCart(id) {
+            return id;
+        }
+    };
+})();
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {(function () {
@@ -46052,7 +46073,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {(function () {
@@ -46073,7 +46094,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -46110,36 +46131,10 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */
-/***/ (function(module, exports) {
-
-(function () {
-    'use strict';
-
-    ESTORE.module = {
-        truncateString: function limit(string, value) {
-            if (string.length > value) {
-                return string.substring(0, value) + '...';
-            } else {
-                return string;
-            }
-        },
-        addItemToCart: function addItemToCart(id) {
-            return id;
-        }
-    };
-})();
 
 /***/ })
 /******/ ]);

@@ -8993,6 +8993,7 @@ hr {
 .home .card-section .button {
   display: block;
   margin-top: 10px;
+  width: 100%;
 }
 
 @media print, screen and (max-width: 39.99875em) {
@@ -9082,6 +9083,7 @@ hr {
 .home .display-products .card {
   padding: 0.9rem;
   margin-bottom: 1rem;
+  padding-left: 0 !important;
 }
 
 .home .display-products .card .card-section {
