@@ -24,12 +24,11 @@
                     }));
                },
                 stringLimit: function (string, value){
-                    if(string.length > value){
-                        return string.substring(0, value) + '...';
-                    }
-                    else{
-                        return string;
-                    }
+                    return ESTORE.module.truncateString(string, value);
+                },
+                addToCart: function(id){
+                    var message = ESTORE.module.addItemToCart(id);
+                    alert(message);
                 },
                 loadMoreProducts: function (){
                     var token = $('.display-products').data('token');

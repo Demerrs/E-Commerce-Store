@@ -11962,7 +11962,7 @@ __webpack_require__(43);
 __webpack_require__(44);
 // require('../../assets/js/pages/cart');
 __webpack_require__(45);
-// require('../../assets/js/pages/lib');
+__webpack_require__(55);
 __webpack_require__(46);
 __webpack_require__(47);
 __webpack_require__(48);
@@ -45972,11 +45972,11 @@ module.exports = __webpack_amd_options__;
                     }));
                 },
                 stringLimit: function stringLimit(string, value) {
-                    if (string.length > value) {
-                        return string.substring(0, value) + '...';
-                    } else {
-                        return string;
-                    }
+                    return ESTORE.module.truncateString(string, value);
+                },
+                addToCart: function addToCart(id) {
+                    var message = ESTORE.module.addItemToCart(id);
+                    alert(message);
                 },
                 loadMoreProducts: function loadMoreProducts() {
                     var token = $('.display-products').data('token');
@@ -46036,11 +46036,11 @@ module.exports = __webpack_amd_options__;
                     }, 1000);
                 },
                 stringLimit: function stringLimit(string, value) {
-                    if (string.length > value) {
-                        return string.substring(0, value) + '...';
-                    } else {
-                        return string;
-                    }
+                    return ESTORE.module.truncateString(string, value);
+                },
+                addToCart: function addToCart(id) {
+                    var message = ESTORE.module.addItemToCart(id);
+                    alert(message);
                 }
             },
             created: function created() {
@@ -46114,6 +46114,32 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ (function(module, exports) {
+
+(function () {
+    'use strict';
+
+    ESTORE.module = {
+        truncateString: function limit(string, value) {
+            if (string.length > value) {
+                return string.substring(0, value) + '...';
+            } else {
+                return string;
+            }
+        },
+        addItemToCart: function addItemToCart(id) {
+            return id;
+        }
+    };
+})();
 
 /***/ })
 /******/ ]);
