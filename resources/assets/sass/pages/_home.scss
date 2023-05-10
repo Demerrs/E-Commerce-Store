@@ -6,6 +6,19 @@
     padding: 10px;
   }
 
+  .display-products {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  .display-products .cell {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    margin-right: 10px;
+    width: 25%;
+  }
+
 
   padding-top: 3.6rem;
 

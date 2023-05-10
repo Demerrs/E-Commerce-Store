@@ -18,10 +18,10 @@
 
         <section class="display-products" id="root">
             <h2 style="padding-left: 10px">Featured Products</h2>
-            <div class="cell medium-up-4" style="display: inline-block">
-                <div class="small-12 cell" v-for="feature in featured">
+            <div class="row medium-up-4">
+                <div class="cell small-12" v-for="feature in featured">
                     <a :href="'/product/' + feature.id">
-                        <div class="card" data-equalizer-watch>
+                        <div class="card"  data-equalizer-watch>
                             <div class="card-section">
                                 <img :src="'/' + feature.image_path" width="100%" height="200%">
                             </div>
