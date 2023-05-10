@@ -35,7 +35,7 @@
                                     See More
                                 </a>
                                 <a :href="'/product/' + feature.id" class="button cart grid-x">
-                                    @{{ feature.price }} - Add to cart
+                                    $@{{ feature.price }} - Add to cart
                                 </a>
                             </div>
                         </div>

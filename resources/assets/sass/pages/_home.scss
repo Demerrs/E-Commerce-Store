@@ -1,22 +1,48 @@
 .home{
 
 
-  .card {
-    margin: 10px;
-    padding: 10px;
+    .card {
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .display-products {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .display-products .cell {
+      display: inline-block;
+      vertical-align: top;
+      white-space: normal;
+      margin-right: 10px;
+      width: 25%;
+    }
+
+  .card-section .button {
+    display: block;
+    margin-top: 10px;
   }
 
-  .display-products {
-    white-space: nowrap;
-    overflow-x: auto;
-  }
+  @include breakpoint(small only){
 
-  .display-products .cell {
-    display: inline-block;
-    vertical-align: top;
-    white-space: normal;
-    margin-right: 10px;
-    width: 25%;
+    .card {
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .display-products {
+      white-space: normal;
+      overflow-x: auto;
+    }
+
+    .display-products .cell {
+      display: block;
+      vertical-align: top;
+      white-space: normal;
+      margin-right: 10px;
+      width: 100%;
+    }
   }
 
 

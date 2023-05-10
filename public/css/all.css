@@ -8959,6 +8959,31 @@ hr {
   width: 25%;
 }
 
+.home .card-section .button {
+  display: block;
+  margin-top: 10px;
+}
+
+@media print, screen and (max-width: 39.99875em) {
+  .home .card {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .home .display-products {
+    white-space: normal;
+    overflow-x: auto;
+  }
+
+  .home .display-products .cell {
+    display: block;
+    vertical-align: top;
+    white-space: normal;
+    margin-right: 10px;
+    width: 100%;
+  }
+}
+
 @media print, screen and (max-width: 39.99875em) {
   .home {
     padding-top: 2.5rem;
