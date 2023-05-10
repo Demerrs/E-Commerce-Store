@@ -4,6 +4,7 @@
     window.ESTORE = {
         global: {},
         admin: {},
-        homeslider: {}
+        homeslider: {},
+        product: {},
     };
 })();

@@ -11935,7 +11935,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(48);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
@@ -11963,9 +11963,9 @@ __webpack_require__(44);
 // require('../../assets/js/pages/cart');
 __webpack_require__(45);
 // require('../../assets/js/pages/lib');
-// require('../../assets/js/pages/product_details');
 __webpack_require__(46);
 __webpack_require__(47);
+__webpack_require__(48);
 
 /***/ }),
 /* 12 */
@@ -45767,7 +45767,8 @@ module.exports = __webpack_amd_options__;
     window.ESTORE = {
         global: {},
         admin: {},
-        homeslider: {}
+        homeslider: {},
+        product: {}
     };
 })();
 
@@ -46010,6 +46011,28 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */(function($) {(function () {
     'use strict';
 
+    ESTORE.product.details = function () {
+        var app = new Vue({
+            el: '#product',
+            data: {
+                product: [],
+                category: [],
+                subCategory: [],
+                productId: $('#product').data('id'),
+                loading: false
+            }
+        });
+    };
+})();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {(function () {
+    'use strict';
+
     ESTORE.homeslider.initCarousel = function () {
         $('.hero-slider').slick({
             slidesToShow: 1,
@@ -46025,7 +46048,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -46041,6 +46064,9 @@ module.exports = __webpack_amd_options__;
             case 'home':
                 ESTORE.homeslider.initCarousel();
                 ESTORE.homeslider.homePageProducts();
+                break;
+            case 'product':
+                ESTORE.product.details();
                 break;
             case 'adminProduct':
                 ESTORE.admin.changeEvent();
@@ -46059,7 +46085,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -12,6 +12,9 @@
                 ESTORE.homeslider.initCarousel();
                 ESTORE.homeslider.homePageProducts();
                 break;
+            case 'product':
+                ESTORE.product.details();
+                break;
             case 'adminProduct':
                 ESTORE.admin.changeEvent();
                 ESTORE.admin.delete();
