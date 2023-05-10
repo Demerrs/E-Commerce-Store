@@ -9150,6 +9150,82 @@ hr {
   }
 }
 
+.product {
+  padding: 6rem;
+}
+
+@media print, screen and (max-width: 39.99875em) {
+  .product {
+    text-align: center;
+    padding: 0.7rem;
+  }
+}
+
+.product p {
+  padding: 1rem;
+  font-size: 0.9rem;
+  /* Adjust font size as needed */
+  word-wrap: break-word;
+}
+
+.product .product-details {
+  width: 100%;
+  display: inline-block;
+}
+
+.product .product-details h2 {
+  margin-top: 0.5rem;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product .small-12 {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.product .medium-5 {
+  width: 30%;
+  display: inline-block;
+  margin-right: 1rem;
+  vertical-align: top;
+}
+
+.product .medium-7 {
+  width: 68%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.button {
+  border-radius: 0.2rem;
+  cursor: pointer;
+  border: 1px solid #ff0000;
+  margin-left: 1rem;
+}
+
+.button:hover {
+  background-color: #e30000;
+}
+
+.row.collapse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .slide-in-down.mui-enter {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
