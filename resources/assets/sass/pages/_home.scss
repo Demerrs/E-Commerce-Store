@@ -92,9 +92,10 @@
       }
     }
   }
-//mobile view
   .display-products{
     padding: 2rem;
+
+    //a little mobile fix
     @include breakpoint(small only){
       padding: 0.7rem;
       text-align: center;
@@ -112,6 +113,8 @@
       padding: 0.9rem;
       margin-bottom: 1rem;
 
+
+
       .card-section{
         margin-bottom: 0.7rem;
 
@@ -120,6 +123,27 @@
           border-radius: 0.5rem;
           width: 420px !important;
           height: 450px !important;
+        }
+
+        .button{
+          border-radius: 0.2rem;
+          cursor: pointer;
+          font-size: 0.8rem;
+
+          &.more{
+            color: #00d6b2;
+            background-color: #ffffff;
+            border: 1px solid #00d6b2;
+          }
+
+          &.cart{
+            color: #ffffff;
+            background-color: #ff0000;
+            border: 1px solid #ff0000;
+            &:hover{
+              background-color: lighten(#bf0000, 7%);
+            }
+          }
         }
       }
     }
