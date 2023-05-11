@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <div class="auth" id="auth" style="padding: 6rem;">
+    <div class="auth" id="auth">
 
         <section class="login_form">
             <div class="cell medium-6 grid-x">

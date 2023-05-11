@@ -4,11 +4,11 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <div class="auth" id="auth" style="padding: 6rem;">
+    <div class="auth" id="auth">
 
         <section class="register_form">
             <div class="cell medium-6 grid-x">
-                <div class="small-12 medium-7 medium-centered">
+                <div class="small-12 medium-7 medium-centered trfixx">
                     <h2 class="text-center">Create Account</h2>
                     <?php echo $__env->make('includes.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                     <form action="/register" method="post">
@@ -26,7 +26,7 @@
                         <input type="hidden" name="token" value="<?php echo e(\App\classes\CSRFToken::_token()); ?>">
                         <button class="button float-right">Register</button>
                     </form>
-                    <p>Already Registered? <a href="/login">Login Here</a> </p>
+                    <p>Already Registered?<a href="/login">Login Here</a> </p>
                 </div>
             </div>
         </section>
