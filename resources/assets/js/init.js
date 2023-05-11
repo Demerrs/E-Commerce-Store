@@ -15,6 +15,9 @@
             case 'product':
                 ESTORE.product.details();
                 break;
+            case 'cart':
+                ESTORE.product.cart();
+                break;
             case 'adminProduct':
                 ESTORE.admin.changeEvent();
                 ESTORE.admin.delete();
