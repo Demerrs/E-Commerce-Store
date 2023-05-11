@@ -41,4 +41,19 @@ class Cart
             echo $ex->getMessage();
         }
     }
+
+    public static function removeItem($index)
+    {
+        if(count(Session::get('user_cart')) <= 1){
+            self::clear();
+        }else{
+            unset($_SESSION['user_cart'][$index]);
+            sort($_SESSION['user_cart']);
+        }
+    }
+
+    public static function clear()
+    {
+        Session::remove('user_cart');
+    }
 }
