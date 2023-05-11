@@ -57,8 +57,61 @@
                         </table>
 
                         <table>
-
+                            <tr>
+                                <td valign="top">
+                                    <div class="input-group" style="padding: 10px">
+                                        <input type="text" name="coupon" class="input-group-field" placeholder="coupon code">
+                                        <div class="input-group-button">
+                                            <button class="button" style="border: hidden">Apply</button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="padding: 10px">
+                                    <table class="unstriped">
+                                        <tr>
+                                            <td style="padding: 10px;">
+                                                <h6>Subtotal:</h6>
+                                            </td>
+                                            <td class="text-right" style="padding: 10px">
+                                                <h6>${{ cartTotal }}</h6>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px;">
+                                                <h6>Discount Amount:</h6>
+                                            </td>
+                                            <td class="text-right" style="padding: 10px;">
+                                                <h6>$0.00</h6>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px;">
+                                                <h6>Tax:</h6>
+                                            </td>
+                                            <td class="text-right" style="padding: 10px;">
+                                                <h6>$0.00</h6>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px;">
+                                                <h6>Total:</h6>
+                                            </td>
+                                            <td class="text-right" style="padding: 10px;">
+                                                <h6>${{ cartTotal }}</h6>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
                         </table>
+                        <div class="text-right">
+                            <a href="/" class="button secondary">
+                                Continue Shopping &nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </a>
+                            <button type="submit" class="button success">
+                                Checkout &nbsp;<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

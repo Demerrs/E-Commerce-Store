@@ -9220,14 +9220,14 @@ hr {
   vertical-align: top;
 }
 
-.button {
+.button.cart {
   border-radius: 0.2rem;
   cursor: pointer;
   border: 1px solid #ff0000;
   margin-left: 1rem;
 }
 
-.button:hover {
+.button.cart:hover {
   background-color: #e30000;
 }
 
