@@ -3,29 +3,35 @@ $logo-img-folder: 'images';
 
 .navigation{
   z-index: 1000;
-  width: 100%;
+  width:100%;
   top: 0;
   position: fixed;
   font-family: "Open Sans", sans-serif;
 
-
   .logo{
-    background-image: url("/#{$logo-img-folder}/logo.png");
-    width: 5rem;
+    background-image: url('/#{$logo-img-folder}/logo.png');
+    width: 10rem;
     height: 2.6rem;
     display: block;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
+  }
 
-    @include breakpoint(small only){
+  @include breakpoint(small only){
+
+    .logo{
       display: none;
+    }
+
+    .fixx{
+      display: block;
     }
   }
 
   .toggle{
     line-height: 3rem;
-    padding: 0 0.5rem 0.3rem 0.5rem;
+    padding:0 0.5rem 0.3rem 0.5rem;
     background-color: darken($menu-background, 10%);
 
     .menu-icon{
@@ -33,11 +39,11 @@ $logo-img-folder: 'images';
       &:focus{
         outline-style: none;
       }
-
       &::after{
         width: 1.8rem;
       }
     }
+
     .small-logo{
       padding-bottom: 0.5rem;
       display: inline-block;
@@ -52,6 +58,7 @@ $logo-img-folder: 'images';
 
   .top-bar{
     background-color: $menu-background;
+
     .menu{
       background-color: $menu-background;
       li{
@@ -64,15 +71,12 @@ $logo-img-folder: 'images';
           @include breakpoint(medium only){
             font-size: 0.6rem;
           }
-
           &:hover{
             color: #ffffff;
           }
-
           &:focus{
             outline-style: none;
           }
-
         }
       }
     }
@@ -84,16 +88,20 @@ $logo-img-folder: 'images';
         margin-top: 0.7rem;
 
         @include breakpoint(small only){
+          margin-top: 2.4rem;
           width: 100% !important;
         }
 
         li{
           border-bottom: 1px dotted #ffffff;
 
-          &:last-of-type{
-            border-bottom: none;
+          a{
+            text-align: left;
           }
 
+          &:last-of-type{
+            border-bottom:none;
+          }
         }
       }
 
@@ -101,13 +109,5 @@ $logo-img-folder: 'images';
         text-align: left;
       }
     }
-    .top-bar-left{
-      .fixx{
-        @include breakpoint(small only){
-          display: block;
-        }
-      }
-    }
   }
-
 }
