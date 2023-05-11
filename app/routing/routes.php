@@ -11,4 +11,7 @@ $router->map('GET','/product/[i:id]','App\controllers\ProductController@show','p
 $router->map('GET','/product-details/[i:id]','App\controllers\ProductController@get','product_details');
 
 require_once __DIR__. '/cart.php';
+
+require_once __DIR__. '/auth.php';
+
 require_once __DIR__. '/admin_routes.php';

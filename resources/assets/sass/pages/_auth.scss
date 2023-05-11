@@ -1,0 +1,19 @@
+.auth{
+
+  .register_form{
+    margin-left: 20%;
+  }
+  .login_form{
+    margin-left: 20%;
+  }
+
+  padding: 6rem !important;
+
+  @include breakpoint(small only){
+    padding: 4rem 1rem;
+  }
+
+  h2{
+    margin-bottom: 0.5rem !important;
+  }
+}
