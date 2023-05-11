@@ -28,10 +28,9 @@
                 stringLimit: function (string, value) {
                     return ESTORE.module.truncateString(string, value);
                 },
-                addToCart: function(id){
-                    ESTORE.module.addItemToCart(id, function (message){
-                        $(".notify").css("display", 'block').removeClass('alert')
-                            .addClass('primary').delay(4000).slideUp(300)
+                addToCart: function (id) {
+                    ESTORE.module.addItemToCart(id, function (message) {
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300)
                             .html(message);
                     });
                 }

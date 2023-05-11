@@ -45976,7 +45976,7 @@ module.exports = __webpack_amd_options__;
                 },
                 addToCart: function addToCart(id) {
                     ESTORE.module.addItemToCart(id, function (message) {
-                        $(".notify").css("display", 'block').removeClass('alert').addClass('primary').delay(4000).slideUp(300).html(message);
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300).html(message);
                     });
                 },
                 loadMoreProducts: function loadMoreProducts() {
@@ -46072,7 +46072,7 @@ module.exports = __webpack_amd_options__;
                 },
                 addToCart: function addToCart(id) {
                     ESTORE.module.addItemToCart(id, function (message) {
-                        $(".notify").css("display", 'block').removeClass('alert').addClass('primary').delay(4000).slideUp(300).html(message);
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300).html(message);
                     });
                 }
             },
