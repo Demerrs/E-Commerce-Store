@@ -45971,7 +45971,7 @@ module.exports = __webpack_amd_options__;
                             if (response.data.fail) {
                                 app.fail = true;
                                 app.message = response.data.fail;
-                                aoo.loading = false;
+                                app.loading = false;
                             } else {
                                 app.items = response.data.items;
                                 app.cartTotal = response.data.cartTotal;
