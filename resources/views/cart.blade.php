@@ -112,17 +112,18 @@
                                 </td>
                             </tr>
                         </table>
-                        <div class="text-right">
-                            <a href="/" class="button secondary">
-                                Continue Shopping &nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            </a>
-                            <button type="submit" class="button success">
+                        <div class="text-try-align" >
+                            <button @click="clearItems" class="button alert" >Clear Cart</button>
+                            <button type="submit" class="button success" style="float: right; margin-left: 10px">
                                 Checkout &nbsp;<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                             </button>
+                            <a href="/" class="button secondary" style="float: right; margin-right: 10px">
+                                Continue Shopping &nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </a>
+                        </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
 

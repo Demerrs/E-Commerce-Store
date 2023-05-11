@@ -45992,6 +45992,12 @@ module.exports = __webpack_amd_options__;
                         $(".notify").css("display", "block").delay(4000).slideUp(300).html(response.data.success);
                         app.displayItems(200);
                     });
+                },
+                clearItems: function clearItems() {
+                    axios.post('/cart/clear').then(function (response) {
+                        $(".notify").css("display", "block").delay(4000).slideUp(300).html(response.data.success);
+                        app.displayItems(200);
+                    });
                 }
             },
             created: function created() {
