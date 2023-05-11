@@ -8,16 +8,17 @@ use App\classes\CSRFToken;
 use App\classes\Request;
 class CartController extends BaseController
 {
-    public function addItem(){
+    public function addItem()
+    {
         if(Request::has('post')){
             $request = Request::get('post');
-            if (CSRFToken::verifyCSRFToken($request->token, false)){
-                if (!$request->product_id){
+            if(CSRFToken::verifyCSRFToken($request->token, false)){
+                if(!$request->product_id){
                     throw new \Exception('Malicious Activity');
-                }else{
-                    Cart::add($request);
-                    echo json_encode(['success' => 'Product Added to Cart Successfully']);
                 }
+                Cart::add($request);
+                echo json_encode(['success' => 'Product Added to Cart Successfully']);
+                exit;
             }
         }
     }
