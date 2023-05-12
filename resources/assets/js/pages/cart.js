@@ -8,10 +8,10 @@
             data: {
                 items: [],
                 cartTotal: [],
+                loading: false,
                 fail: false,
-                message: '',
                 authenticated: false,
-                loading: false
+                message: '',
             },
             methods: {
                 displayItems: function (time){
@@ -44,6 +44,9 @@
                             .html(response.data.success);
                         app.displayItems(200);
                     });
+                },
+                checkout: function (){
+                    alert('can see');
                 },
                 emptyCart: function (){
                     axios.post('/cart/empty').then(function (response){

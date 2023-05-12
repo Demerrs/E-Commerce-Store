@@ -129,6 +129,7 @@ class CartController extends BaseController
         }
     }
 
+
     public function emptyCart()
     {
         Cart::clear();

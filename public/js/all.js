@@ -45959,10 +45959,10 @@ module.exports = __webpack_amd_options__;
             data: {
                 items: [],
                 cartTotal: [],
+                loading: false,
                 fail: false,
-                message: '',
                 authenticated: false,
-                loading: false
+                message: ''
             },
             methods: {
                 displayItems: function displayItems(time) {
@@ -45994,6 +45994,9 @@ module.exports = __webpack_amd_options__;
                         $(".notify").css("display", "block").delay(4000).slideUp(300).html(response.data.success);
                         app.displayItems(200);
                     });
+                },
+                checkout: function checkout() {
+                    alert('can see');
                 },
                 emptyCart: function emptyCart() {
                     axios.post('/cart/empty').then(function (response) {
