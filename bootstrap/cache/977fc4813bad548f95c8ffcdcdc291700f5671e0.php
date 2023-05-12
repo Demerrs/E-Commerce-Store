@@ -4,7 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <div class="shopping_cart" id="shopping_cart" style="padding: 6rem;">
+    <div class="shopping_cart" id="shopping_cart">
 
         <div class="text-center">
             <img v-show="loading" src="/images/loading.gif">

@@ -109,4 +109,17 @@ class AuthController extends BaseController
         return null;
     }
 
+    public function logout(){
+        if (isAuthenticated()){
+            Session::remove('SESSION_USER_ID');
+            Session::remove('SESSION_USER_NAME');
+
+            if (!Session::has('user_cart')){
+                session_destroy();
+                session_regenerate_id(true);
+            }
+        }
+        Redirect::to('/');
+    }
+
 }
