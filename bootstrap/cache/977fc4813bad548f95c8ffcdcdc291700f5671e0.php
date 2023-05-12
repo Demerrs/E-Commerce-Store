@@ -110,23 +110,37 @@
                                 </td>
                             </tr>
                         </table>
-                        <div class="text-try-align" >
-                            <button @click="clearItems" class="button alert" >Clear Cart</button>
-                            <button v-if="authenticated" class="button success" style="float: right; margin-left: 10px">
-                                Checkout &nbsp;<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-                            </button>
-                            <span v-else>
-                                <a href="/login" class="button success" style="float: right; margin-left: 10px">
-                                    Checkout &nbsp;<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                        <div class="grid-x">
+                            <div class="cell small-12 medium-6">
+                                <button @click.prevent="emptyCart" class="button alert">
+                                    Empty Cart &nbsp; <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="cell small-12 medium-6">
+                                <div class="text-right">
+                                    <a href="/" class="button secondary">
+                                        Continue Shopping &nbsp; <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    </a>
+                                    <span v-if="authenticated">
+                                <button @click.prevent="checkout" class="button success">
+                                    Pay With Card &nbsp; <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                                </button>
+                                <span id="paypalBtn"></span>
+                                <span id="paypalInfo" data-app-env="<?php echo e(getenv('APP_ENV')); ?>"
+                                      data-app-baseurl="<?php echo e(getenv('APP_URL')); ?>"></span>
+                            </span>
+                                    <span v-else>
+                                <a href="/login" class="button success">
+                                    Checkout &nbsp; <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                                 </a>
                             </span>
-                            <span id="properties" class="hide" data-customer-email="<?php echo e(user()->email); ?>"
-                                  data-stripe-key="<?php echo e(\App\classes\Session::get('publishable_key')); ?>"></span>
 
-                            <a href="/" class="button secondary" style="float: right; margin-right: 10px">
-                                Continue Shopping &nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                                    <span id="properties" class="hide"
+                                          data-customer-email="<?php echo e(user()->email); ?>"
+                                          data-stripe-key="<?php echo e(\App\Classes\Session::get('publishable_key')); ?>">
+
+                            </span>
+                                </div>
                         </div>
                     </div>
                 </div>

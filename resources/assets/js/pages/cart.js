@@ -45,8 +45,8 @@
                         app.displayItems(200);
                     });
                 },
-                clearItems: function (){
-                    axios.post('/cart/clear').then(function (response){
+                emptyCart: function (){
+                    axios.post('/cart/empty').then(function (response){
                         $(".notify").css("display", "block").delay(4000).slideUp(300)
                             .html(response.data.success);
                         app.displayItems(200);
