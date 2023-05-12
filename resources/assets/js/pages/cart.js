@@ -10,6 +10,7 @@
                 cartTotal: [],
                 fail: false,
                 message: '',
+                authenticated: false,
                 loading: false
             },
             methods: {
@@ -25,6 +26,7 @@
                                 app.items = response.data.items;
                                 app.cartTotal = response.data.cartTotal;
                                 app.loading = false;
+                                app.authenticated = response.data.authenticated;
                             }
                         });
                     }, time)

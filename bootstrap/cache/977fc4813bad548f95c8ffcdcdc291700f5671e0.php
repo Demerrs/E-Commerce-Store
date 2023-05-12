@@ -112,9 +112,17 @@
                         </table>
                         <div class="text-try-align" >
                             <button @click="clearItems" class="button alert" >Clear Cart</button>
-                            <button type="submit" class="button success" style="float: right; margin-left: 10px">
+                            <button v-if="authenticated" class="button success" style="float: right; margin-left: 10px">
                                 Checkout &nbsp;<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                             </button>
+                            <span v-else>
+                                <a href="/login" class="button success" style="float: right; margin-left: 10px">
+                                    Checkout &nbsp;<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                                </a>
+                            </span>
+                            <span id="properties" class="hide" data-customer-email="<?php echo e(user()->email); ?>"
+                                  data-stripe-key="<?php echo e(\App\classes\Session::get('publishable_key')); ?>"></span>
+
                             <a href="/" class="button secondary" style="float: right; margin-right: 10px">
                                 Continue Shopping &nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </a>
