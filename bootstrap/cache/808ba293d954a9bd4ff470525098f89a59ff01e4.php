@@ -1,8 +1,7 @@
-@extends('admin.layout.base')
-@section('title', 'Manage Inventory')
-@section('data-page-id', 'adminProduct')
+<?php $__env->startSection('title', 'Manage Inventory'); ?>
+<?php $__env->startSection('data-page-id', 'adminProduct'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="products admin_shared">
         <div class="grid-padding-x">
             <div class="cell medium-11">
@@ -10,7 +9,7 @@
             </div>
         </div>
 
-        @include('includes.message')
+        <?php echo $__env->make('includes.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <div class="grid-x grid-padding-x">
             <div class="small-12 medium-11 cell">
@@ -22,7 +21,7 @@
 
         <div class="grid-x grid-padding-x">
             <div class="small-12 medium-11 cell">
-                @if(count($products))
+                <?php if(count($products)): ?>
                     <table class="hover unstriped" data-form="deleteForm">
                         <tbody>
                         <thead>
@@ -37,33 +36,35 @@
                             <th width="70">Action</th>
                         </tr>
                         </thead>
-                        @foreach($products as $product)
+                        <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td>
-                                    <img src="/{{ $product['image_path'] }}" alt="{{ $product['name'] }}" height="40" width="40">
+                                    <img src="/<?php echo e($product['image_path']); ?>" alt="<?php echo e($product['name']); ?>" height="40" width="40">
                                 </td>
-                                <td>{{ $product['name'] }}</td>
-                                <td>{{ $product['price'] }}</td>
-                                <td>{{ $product['quantity'] }}</td>
-                                <td>{{ $product['category_name'] }}</td>
-                                <td>{{ $product['sub_category_name'] }}</td>
-                                <td>{{ $product['added'] }}</td>
+                                <td><?php echo e($product['name']); ?></td>
+                                <td><?php echo e($product['price']); ?></td>
+                                <td><?php echo e($product['quantity']); ?></td>
+                                <td><?php echo e($product['category_name']); ?></td>
+                                <td><?php echo e($product['sub_category_name']); ?></td>
+                                <td><?php echo e($product['added']); ?></td>
                                 <td width="50" class="text-right">
                                     <span data-tooltip aria-haspopup="true"
                                           class="has-tip top" data-disable-hover="false"
                                           tabindex="1" title="Edit Product">
-                                    <a href="/admin/product/{{ $product['id'] }}/edit">Edit <i class="fa fa-edit"></i></a>
+                                    <a href="/admin/product/<?php echo e($product['id']); ?>/edit">Edit <i class="fa fa-edit"></i></a>
                                     </span>
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
-                    {!! $links !!}
-                @else
+                    <?php echo $links; ?>
+
+                <?php else: ?>
                     <h2>You have not created any products</h2>
-                @endif
+                <?php endif; ?>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
