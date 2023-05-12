@@ -130,7 +130,13 @@ class CartController extends BaseController
         }
     }
 
-
+    public function checkout(){
+        if (Request::has('post')){
+            $request = Request::get('post');
+            echo json_encode(['succes' => $request]);
+            exit;
+        }
+    }
     public function emptyCart()
     {
         Cart::clear();

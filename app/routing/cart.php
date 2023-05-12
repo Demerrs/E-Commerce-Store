@@ -7,6 +7,6 @@ $router->map('GET','/cart/items','App\controllers\CartController@getCartItems','
 $router->map('POST','/cart/update-qty','App\controllers\CartController@updateQuantity','update_cart_qty');
 $router->map('POST','/cart/remove-item','App\controllers\CartController@removeItem','remove_cart_item');
 
-
+$router->map('POST','/cart/payment','App\controllers\CartController@checkout','handle_payment');
 $router->map('POST','/cart/empty','App\controllers\CartController@emptyCart','empty_cart');
 
