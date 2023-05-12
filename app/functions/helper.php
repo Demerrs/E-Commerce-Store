@@ -67,3 +67,12 @@ function user()
     }
     return false;
 }
+
+function usermail()
+{
+    if (isAuthenticated()){
+        $user = User::findOrFail(\App\classes\Session::get('SESSION_USER_ID'));
+        return $user->email;
+    }
+    return false;
+}

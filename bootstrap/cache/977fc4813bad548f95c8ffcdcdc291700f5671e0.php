@@ -125,9 +125,6 @@
                                 <button @click.prevent="checkout" class="button success">
                                     Pay With Card &nbsp; <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                                 </button>
-                                <span id="paypalBtn"></span>
-                                <span id="paypalInfo" data-app-env="<?php echo e(getenv('APP_ENV')); ?>"
-                                      data-app-baseurl="<?php echo e(getenv('APP_URL')); ?>"></span>
                             </span>
                                     <span v-else>
                                 <a href="/login" class="button success">
@@ -136,8 +133,8 @@
                             </span>
 
                                     <span id="properties" class="hide"
-                                          data-customer-email="<?php echo e(user()->email); ?>"
-                                          data-stripe-key="<?php echo e(\App\Classes\Session::get('publishable_key')); ?>">
+                                          data-customer-email="<?php echo e(usermail()); ?>"
+                                          data-stripe-key="<?php echo e(\App\classes\Session::get('publishable_key')); ?>">
 
                             </span>
                                 </div>
