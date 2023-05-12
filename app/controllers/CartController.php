@@ -68,7 +68,8 @@ class CartController extends BaseController
             echo json_encode(
                 [
                     'items' => $result, 'cartTotal' => $cartTotal,
-                    'authenticated' => isAuthenticated()]
+                    'authenticated' => isAuthenticated(), 'amountInCents' => convertMoneyToCents($cartTotal)
+                ]
             );
             exit;
         }catch (\Exception $ex){
