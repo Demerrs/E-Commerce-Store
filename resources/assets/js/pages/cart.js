@@ -69,7 +69,7 @@
                         name: "Ecommerce Store, Inc.",
                         description: "Shopping Cart Items",
                         email: $('#properties').data('customer-email'),
-                        price: app.amountInCents,
+                        amount: app.amountInCents,
                         zipCode: true
                     });
                 },
