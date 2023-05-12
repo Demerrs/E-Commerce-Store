@@ -17,7 +17,8 @@
         "phpmailer/phpmailer": "^6.8",
         "nesbot/carbon": "^1.39",
         "voku/pagination": "^4.0",
-      "ext-openssl": "*"
+      "ext-openssl": "*",
+        "stripe/stripe-php": "^10.13"
     },
     "require-dev": {
         "filp/whoops": "^2.15"
