@@ -1,7 +1,7 @@
 <?php
 //for admin routes
 $router->map('GET','/admin','App\controllers\admin\DashboardController@show','admin_dashboard');
-$router->map('POST','/admin','App\controllers\admin\DashboardController@get','admin_form');
+$router->map('GET','/admin/charts','App\controllers\admin\DashboardController@getChartdata','admin_dashboard_charts');
 
 //product management
 $router->map('GET','/admin/product/categories','App\controllers\admin\ProductCategoryController@show','product_category');
