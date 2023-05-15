@@ -30,4 +30,6 @@ $router->map('POST', '/admin/product/edit',
 
 $router->map('GET', '/admin/transactions/orders',
     'App\controllers\admin\OrderController@show', 'dashboard_transactions_orders');
+$router->map('GET', '/admin/transactions/payments',
+    'App\controllers\admin\PaymentController@show', 'dashboard_transactions_payments');
 
