@@ -51,8 +51,8 @@ function paginate($num_of_records, $total_record, $table_name, $object){
     $data = Capsule::select("SELECT * FROM $table_name WHERE deleted_at is null 
                     ORDER BY created_at DESC" . $pages->get_limit());
 
-    $categories = $object->transform($data);
-    return [$categories, $pages->page_links()];
+    $response = $object->transform($data);
+    return [$response, $pages->page_links()];
 }
 
 function isAuthenticated()

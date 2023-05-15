@@ -28,5 +28,6 @@ $router->map('GET', '/admin/product/[i:id]/edit',
 $router->map('POST', '/admin/product/edit',
     'App\controllers\admin\ProductController@edit', 'edit_product');
 
-$router->map('POST', '/admin/product/[i:id]/delete',
-    'App\controllers\admin\ProductController@delete', 'delete_product');
+$router->map('GET', '/admin/transactions/orders',
+    'App\controllers\admin\OrderController@show', 'dashboard_transactions_orders');
+
