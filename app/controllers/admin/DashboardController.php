@@ -2,6 +2,8 @@
 
 namespace App\controllers\admin;
 
+use App\classes\Redirect;
+use App\classes\Role;
 use App\controllers\BaseController;
 use App\models\Order;
 use App\models\Payment;
@@ -11,6 +13,12 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 class DashboardController extends BaseController
 {
+
+    public function __construct(){
+        if (!Role::middleware('admin')){
+            Redirect::to('/login');
+        }
+    }
     public function show(){
         $orders = Order::all()->count();
         $products = Product::all()->count();
