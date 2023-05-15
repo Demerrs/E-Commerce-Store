@@ -8,21 +8,21 @@
 
     <div class="top-bar" id="main-menu">
         <div class="top-bar-left">
-            <ul class="dropdown menu fixx" data-dropdown-menu data-click-open="true" data-disable-hover="true" data-close-on-click-inside="false">
+            <ul class="dropdown menu fixx" data-dropdown-menu>
                 <li class="menu-text logo" onclick="location.href='/'"></li>
                 <li><a href="/products" class="small-12 cell">EStore Products</a></li>
                 @if(count($categories))
                     <li>
-                        <a href="#">Categories</a>
+                        <a href="/products/category">Categories</a>
                         <ul class="menu vertical dropdown">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="#">{{ $category->name }}</a>
+                                    <a href="/products/category/{{ $category->slug }}">{{ $category->name }}</a>
                                     @if(count($category->subCategories))
                                         <ul class="menu vertical">
                                             @foreach($category->subCategories as $subCategory)
                                                 <li>
-                                                    <a href="$">
+                                                    <a href="/products/category/{{ $category->slug }}/{{ $subCategory->slug }}">
                                                         {{ $subCategory->name }}
                                                     </a>
                                                 </li>

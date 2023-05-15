@@ -15,6 +15,10 @@
             case 'product':
                 ESTORE.product.details();
                 break;
+            case 'products':
+            case 'categories':
+                ESTORE.products.display();
+                break;
             case 'cart':
                 ESTORE.product.cart();
                 break;

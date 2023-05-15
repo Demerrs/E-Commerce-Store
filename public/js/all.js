@@ -11935,7 +11935,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -11966,6 +11966,7 @@ __webpack_require__(48);
 __webpack_require__(49);
 __webpack_require__(50);
 __webpack_require__(51);
+__webpack_require__(52);
 
 /***/ }),
 /* 12 */
@@ -45768,7 +45769,8 @@ module.exports = __webpack_amd_options__;
         global: {},
         admin: {},
         homeslider: {},
-        product: {}
+        product: {},
+        products: {}
     };
 })();
 
@@ -46132,10 +46134,10 @@ module.exports = __webpack_amd_options__;
                 loadMoreProducts: function loadMoreProducts() {
                     var token = $('.display-products').data('token');
                     this.loading = true;
-                    var data = $.param({ next: 2, token: token, count: app.count });
-                    axios.post('/load-more', data).then(function (response) {
-                        app.products = response.data.products;
-                        app.count = response.data.count;
+                    var postdata = { next: 2, token: token, count: this.count };
+                    ESTORE.module.loadMore('/load-more', postdata, function (response) {
+                        app.products = response.products;
+                        app.count = response.count;
                         app.loading = false;
                     });
                 }
@@ -46162,6 +46164,68 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */(function($) {(function () {
     'use strict';
 
+    ESTORE.products.display = function () {
+        var app = new Vue({
+            el: '#root',
+            data: {
+                products: [],
+                count: 0,
+                loading: false,
+                next: 8,
+                targetElement: $('.display-products'),
+                loadMoreEndpoint: '/products/category/load-more'
+            },
+            methods: {
+                stringLimit: function stringLimit(string, value) {
+                    return ESTORE.module.truncateString(string, value);
+                },
+                addToCart: function addToCart(id) {
+                    ESTORE.module.addItemToCart(id, function (message) {
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300).html(message);
+                    });
+                },
+                loadMoreProducts: function loadMoreProducts() {
+                    var token = this.targetElement.data('token');
+                    var urlParams = this.targetElement.data('urlparams');
+                    this.loading = true;
+                    var postData = { next: this.next, token: token, count: this.count };
+
+                    if (typeof urlParams !== 'undefined' && urlParams) {
+                        postData.slug = urlParams.slug;
+                        if (typeof urlParams.subcategory !== 'undefined') {
+                            postData.subcategory = urlParams.subcategory;
+                        }
+                    }
+                    ESTORE.module.loadMore(this.loadMoreEndpoint, postData, function (response) {
+                        app.products = response.products;
+                        app.count = response.count;
+                        app.loading = false;
+                        app.next += 2;
+                    });
+                }
+            },
+            created: function created() {
+                this.loadMoreProducts();
+            },
+            mounted: function mounted() {
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                        app.loadMoreProducts();
+                    }
+                });
+            }
+        });
+    };
+})();
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {(function () {
+    'use strict';
+
     ESTORE.module = {
         truncateString: function limit(string, value) {
             if (string.length > value) {
@@ -46181,13 +46245,19 @@ module.exports = __webpack_amd_options__;
             axios.post('/cart', postData).then(function (response) {
                 callback(response.data.success);
             });
+        },
+        loadMore: function loadMore(endpoint, $postData, callback) {
+            var postdata = $.param($postData);
+            axios.post(endpoint, postdata).then(function (response) {
+                callback(response.data);
+            });
         }
     };
 })();
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {(function () {
@@ -46235,7 +46305,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {(function () {
@@ -46256,7 +46326,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -46275,6 +46345,10 @@ module.exports = __webpack_amd_options__;
                 break;
             case 'product':
                 ESTORE.product.details();
+                break;
+            case 'products':
+            case 'categories':
+                ESTORE.products.display();
                 break;
             case 'cart':
                 ESTORE.product.cart();
@@ -46299,7 +46373,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

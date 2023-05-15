@@ -1,28 +1,17 @@
 (function (){
     'use strict'
-    ESTORE.homeslider.homePageProducts = function () {
+    ESTORE.products.display = function () {
         var app = new Vue({
             el:'#root',
             data: {
-                featured: [],
                 products: [],
                 count: 0,
-                loading: false
+                loading: false,
+                next: 8,
+                targetElement: $('.display-products'),
+                loadMoreEndpoint: '/products/category/load-more'
             },
             methods:{
-                getFeaturedProducts: function () {
-                    this.loading = true;
-                    axios.all(
-                        [
-                            axios.get('/featured'),  axios.get('/get-products')
-                        ]
-                    ).then(axios.spread(function (featuredResponse, productsResponse) {
-                        app.featured = featuredResponse.data.featured;
-                        app.products = productsResponse.data.products;
-                        app.count = productsResponse.data.count;
-                        app.loading = false;
-                    }));
-                },
                 stringLimit: function (string, value) {
                     return ESTORE.module.truncateString(string, value);
                 },
@@ -33,18 +22,27 @@
                     });
                 },
                 loadMoreProducts: function () {
-                    var token = $('.display-products').data('token');
+                    var token = this.targetElement.data('token');
+                    var urlParams = this.targetElement.data('urlparams');
                     this.loading = true;
-                    var postdata = { next: 2, token: token, count: this.count };
-                    ESTORE.module.loadMore('/load-more', postdata, function (response) {
+                    var postData = { next: this.next, token: token, count: this.count };
+
+                    if(typeof urlParams !== 'undefined' && urlParams){
+                        postData.slug = urlParams.slug;
+                        if(typeof urlParams.subcategory !== 'undefined'){
+                            postData.subcategory = urlParams.subcategory;
+                        }
+                    }
+                    ESTORE.module.loadMore(this.loadMoreEndpoint, postData, function (response) {
                         app.products = response.products;
                         app.count = response.count;
                         app.loading = false;
+                        app.next  += 2;
                     });
                 }
             },
             created: function () {
-                this.getFeaturedProducts();
+                this.loadMoreProducts();
             },
             mounted: function () {
                 $(window).scroll(function () {

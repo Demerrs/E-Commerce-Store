@@ -9,6 +9,8 @@ class Category extends Model
 {
     use SoftDeletes;
     public $timestamps = true;
+
+    public $table = 'categories';
     protected $fillable = ['name', 'slug'];
 
     protected $dates = ['deleted_at'];
@@ -36,5 +38,9 @@ class Category extends Model
         }
 
         return $categories;
+    }
+
+    public function scopeFindBySlug($queryBuilder, $slug){
+        return $queryBuilder->where('slug', $slug)->first();
     }
 }
