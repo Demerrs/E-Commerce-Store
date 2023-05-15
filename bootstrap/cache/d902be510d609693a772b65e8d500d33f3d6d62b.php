@@ -1,11 +1,11 @@
 
 <div class="off-canvas position-left reveal-for-large nav" id="offCanvas" data-off-canvas>
 
-    <h3> Welcome Admin!</h3>
+    <h3> Admin Panel </h3>
     
     <div class="image-holder text-center">
         <img src="/images/profile.jpg" alt=":(" title="Admin">
-        <p>Marta V.</p>
+        <p><?php echo e(user()->fullname); ?></p>
     </div>
     
     <ul class="vertical menu">
