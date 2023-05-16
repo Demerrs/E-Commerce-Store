@@ -36,3 +36,5 @@ $router->map('GET', '/admin/transactions/payments',
 $router->map('GET', '/admin/users',
     'App\controllers\admin\UserController@show', 'show_users');
 
+$router->map('POST','/admin/users/[i:id]/edit','App\controllers\admin\UserCategoryController@edit','edit_user_role');
+

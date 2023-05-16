@@ -3,12 +3,14 @@
 @section('data-page-id', 'adminUsers')
 
 @section('content')
-    <div class="category admin_shared">
+    <div class="user admin_shared">
         <div class="grid-padding-x">
             <div class="cell medium-11">
                 <h2>Users</h2> <hr />
             </div>
         </div>
+
+        @include('includes.message')
 
         <div class="grid-x grid-padding-x">
             <div class="small-12 medium-11 cell">
@@ -21,7 +23,7 @@
                             <th>Fullname</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th width="70">Role</th>
+                            <th>Role</th>
                             <th>Date Created</th>
                         </tr>
                         </thead>
@@ -31,7 +33,41 @@
                                 <td>{{ $user['fullname'] }}</td>
                                 <td>{{ $user['email'] }}</td>
                                 <td>{{ $user['address'] }}</td>
-                                <td>{{ $user['role'] }}</td>
+                                <td style="display: flex; justify-content: space-between">
+                                    {{ $user['role'] }}
+                                    <span data-tooltip aria-haspopup="true"
+                                          class="has-tip top" data-disable-hover="false"
+                                          tabindex="1" title="Edit Product">
+                                    <a data-open="item-{{ $user['id'] }}"><i class="fa fa-edit"></i></a>
+                                    </span>
+
+
+                                    <!--Edit Category Modal -->
+                                    <div class="reveal" id="item-{{$user['id']}}"
+                                         data-reveal data-close-on-click="false" data-close-on-esc="false"
+                                         data-animation-in="fade-in" data-animation-out="scale-out-up">
+                                        <div class="notification callout primary">notif</div>
+                                        <h2>Edit Role</h2>
+                                        <form>
+                                            <div class="input-group" style="display: block">
+                                                <input type="text" id="item-name-{{ $user['id'] }}"
+                                                       name="name" value="{{ $user['role'] }}">
+                                                <div>
+                                                    <input type="submit" class="button update-category"
+                                                           id="{{$user['id']}}"
+                                                           data-token="{{ \App\classes\CSRFToken::_token() }}"
+                                                           value="Update">
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a href="/admin/users" class="close-button" data-close aria-label="Close modal" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </a>
+                                    </div>
+                                    <!--End Edit Category Modal -->
+
+
+                                </td>
                                 <td>{{ $user['added'] }}</td>
                             </tr>
                         @endforeach
@@ -44,4 +80,6 @@
             </div>
         </div>
     </div>
+
+    @include('includes.delete-modal')
 @endsection

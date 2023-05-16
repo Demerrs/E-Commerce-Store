@@ -88,7 +88,7 @@
                                                 <div>
                                                     <input type="submit" class="button update-category"
                                                            id="{{$category['id']}}"
-                                                           data-token="{{ \App\Classes\CSRFToken::_token() }}"
+                                                           data-token="{{ \App\classes\CSRFToken::_token() }}"
                                                            value="Update">
                                                 </div>
                                             </div>
@@ -111,7 +111,7 @@
                                                 <div>
                                                     <input type="submit" class="button add-subcategory"
                                                            id="{{$category['id']}}"
-                                                           data-token="{{ \App\Classes\CSRFToken::_token() }}"
+                                                           data-token="{{ \App\classes\CSRFToken::_token() }}"
                                                            value="Create">
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                                           tabindex="1" title="Delete SubCategory">
                                             <form method="POST" action="/admin/product/subcategory/{{$subcategory['id']}}/delete"
                                                   class="delete-item">
-                                                <input type="hidden" name="token" value="{{ \App\Classes\CSRFToken::_token() }}">
+                                                <input type="hidden" name="token" value="{{ \App\classes\CSRFToken::_token() }}">
                                                 <button type="submit"><i class="fa fa-times delete"></i> </button>
                                             </form>
                                         </span>
@@ -200,7 +200,7 @@
                                                     <input type="submit" class="button update-subcategory"
                                                            id="{{$subcategory['id']}}"
                                                            data-category-id="{{ $subcategory['category_id'] }}"
-                                                           data-token="{{ \App\Classes\CSRFToken::_token() }}"
+                                                           data-token="{{ \App\classes\CSRFToken::_token() }}"
                                                            value="Update">
                                                 </div>
                                             </div>

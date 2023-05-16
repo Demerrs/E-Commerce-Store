@@ -76,5 +76,39 @@
 
             e.preventDefault();
         });
+
+        //update Users role
+        $(".update-category").on('click', function (e) {
+            var token = $(this).data('token');
+            var id = $(this).attr('id');
+            var name = $("#item-role-"+id).val();
+
+            $.ajax({
+                type: 'POST',
+                url: '/admin/users/' + id + '/edit',
+                data: {token: token, name:name},
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                success: function (data) {
+                    var response = jQuery.parseJSON(data);
+                    $(".notification").css("display", 'block').removeClass('alert')
+                        .addClass('primary').delay(4000).slideUp(300)
+                        .html(response.success);
+                },
+                error:function (request,  error) {
+                    var errors = jQuery.parseJSON(request.responseText);
+                    var ul = document.createElement('ul');
+                    $.each(errors, function (key, value) {
+                        var li = document.createElement('li');
+                        li.appendChild(document.createTextNode(value));
+                        ul.appendChild(li);
+                    });
+                    $(".notification").css("display", 'block').removeClass('primary')
+                        .addClass('alert').delay(6000).slideUp(300)
+                        .html(ul);
+                }
+            });
+
+            e.preventDefault();
+        });
     };
 })();

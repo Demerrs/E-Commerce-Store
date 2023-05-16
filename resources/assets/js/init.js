@@ -26,6 +26,8 @@
                 ESTORE.admin.changeEvent();
                 ESTORE.admin.delete();
                 break;
+            case 'adminUsers':
+                ESTORE.admin.update();
             case 'adminDashboard':
                 ESTORE.admin.dashboard();
                 break;

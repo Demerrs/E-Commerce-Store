@@ -87,7 +87,7 @@
                                                 <div>
                                                     <input type="submit" class="button update-category"
                                                            id="<?php echo e($category['id']); ?>"
-                                                           data-token="<?php echo e(\App\Classes\CSRFToken::_token()); ?>"
+                                                           data-token="<?php echo e(\App\classes\CSRFToken::_token()); ?>"
                                                            value="Update">
                                                 </div>
                                             </div>
@@ -110,7 +110,7 @@
                                                 <div>
                                                     <input type="submit" class="button add-subcategory"
                                                            id="<?php echo e($category['id']); ?>"
-                                                           data-token="<?php echo e(\App\Classes\CSRFToken::_token()); ?>"
+                                                           data-token="<?php echo e(\App\classes\CSRFToken::_token()); ?>"
                                                            value="Create">
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                                           tabindex="1" title="Delete SubCategory">
                                             <form method="POST" action="/admin/product/subcategory/<?php echo e($subcategory['id']); ?>/delete"
                                                   class="delete-item">
-                                                <input type="hidden" name="token" value="<?php echo e(\App\Classes\CSRFToken::_token()); ?>">
+                                                <input type="hidden" name="token" value="<?php echo e(\App\classes\CSRFToken::_token()); ?>">
                                                 <button type="submit"><i class="fa fa-times delete"></i> </button>
                                             </form>
                                         </span>
@@ -200,7 +200,7 @@
                                                     <input type="submit" class="button update-subcategory"
                                                            id="<?php echo e($subcategory['id']); ?>"
                                                            data-category-id="<?php echo e($subcategory['category_id']); ?>"
-                                                           data-token="<?php echo e(\App\Classes\CSRFToken::_token()); ?>"
+                                                           data-token="<?php echo e(\App\classes\CSRFToken::_token()); ?>"
                                                            value="Update">
                                                 </div>
                                             </div>

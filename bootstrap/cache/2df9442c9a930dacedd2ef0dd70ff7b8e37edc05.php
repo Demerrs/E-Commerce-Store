@@ -2,12 +2,14 @@
 <?php $__env->startSection('data-page-id', 'adminUsers'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <div class="category admin_shared">
+    <div class="user admin_shared">
         <div class="grid-padding-x">
             <div class="cell medium-11">
                 <h2>Users</h2> <hr />
             </div>
         </div>
+
+        <?php echo $__env->make('includes.message', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
         <div class="grid-x grid-padding-x">
             <div class="small-12 medium-11 cell">
@@ -20,7 +22,7 @@
                             <th>Fullname</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th width="70">Role</th>
+                            <th>Role</th>
                             <th>Date Created</th>
                         </tr>
                         </thead>
@@ -30,7 +32,42 @@
                                 <td><?php echo e($user['fullname']); ?></td>
                                 <td><?php echo e($user['email']); ?></td>
                                 <td><?php echo e($user['address']); ?></td>
-                                <td><?php echo e($user['role']); ?></td>
+                                <td style="display: flex; justify-content: space-between">
+                                    <?php echo e($user['role']); ?>
+
+                                    <span data-tooltip aria-haspopup="true"
+                                          class="has-tip top" data-disable-hover="false"
+                                          tabindex="1" title="Edit Product">
+                                    <a data-open="item-<?php echo e($user['id']); ?>"><i class="fa fa-edit"></i></a>
+                                    </span>
+
+
+                                    <!--Edit Category Modal -->
+                                    <div class="reveal" id="item-<?php echo e($user['id']); ?>"
+                                         data-reveal data-close-on-click="false" data-close-on-esc="false"
+                                         data-animation-in="fade-in" data-animation-out="scale-out-up">
+                                        <div class="notification callout primary">notif</div>
+                                        <h2>Edit Role</h2>
+                                        <form>
+                                            <div class="input-group" style="display: block">
+                                                <input type="text" id="item-name-<?php echo e($user['id']); ?>"
+                                                       name="name" value="<?php echo e($user['role']); ?>">
+                                                <div>
+                                                    <input type="submit" class="button update-category"
+                                                           id="<?php echo e($user['id']); ?>"
+                                                           data-token="<?php echo e(\App\classes\CSRFToken::_token()); ?>"
+                                                           value="Update">
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a href="/admin/users" class="close-button" data-close aria-label="Close modal" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </a>
+                                    </div>
+                                    <!--End Edit Category Modal -->
+
+
+                                </td>
                                 <td><?php echo e($user['added']); ?></td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -44,5 +81,7 @@
             </div>
         </div>
     </div>
+
+    <?php echo $__env->make('includes.delete-modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.layout.base', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
