@@ -33,3 +33,6 @@ $router->map('GET', '/admin/transactions/orders',
 $router->map('GET', '/admin/transactions/payments',
     'App\controllers\admin\PaymentController@show', 'dashboard_transactions_payments');
 
+$router->map('GET', '/admin/users',
+    'App\controllers\admin\UserController@show', 'show_users');
+

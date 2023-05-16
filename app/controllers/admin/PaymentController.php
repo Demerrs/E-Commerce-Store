@@ -5,7 +5,6 @@ namespace App\controllers\admin;
 use App\classes\Redirect;
 use App\classes\Role;
 use App\controllers\BaseController;
-use App\models\Order;
 use App\models\Payment;
 
 class PaymentController extends BaseController
