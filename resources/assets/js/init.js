@@ -28,6 +28,7 @@
                 break;
             case 'adminUsers':
                 ESTORE.admin.update();
+                break;
             case 'adminDashboard':
                 ESTORE.admin.dashboard();
                 break;

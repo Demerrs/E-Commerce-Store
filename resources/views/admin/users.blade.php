@@ -3,7 +3,7 @@
 @section('data-page-id', 'adminUsers')
 
 @section('content')
-    <div class="user admin_shared">
+    <div class="users admin_shared">
         <div class="grid-padding-x">
             <div class="cell medium-11">
                 <h2>Users</h2> <hr />
@@ -42,19 +42,21 @@
                                     </span>
 
 
-                                    <!--Edit Category Modal -->
-                                    <div class="reveal" id="item-{{$user['id']}}"
+                                    <!-- Edit Role Modal -->
+                                    <div class="reveal" id="item-{{ $user['id'] }}"
                                          data-reveal data-close-on-click="false" data-close-on-esc="false"
                                          data-animation-in="fade-in" data-animation-out="scale-out-up">
                                         <div class="notification callout primary">notif</div>
                                         <h2>Edit Role</h2>
                                         <form>
                                             <div class="input-group" style="display: block">
-                                                <input type="text" id="item-name-{{ $user['id'] }}"
-                                                       name="name" value="{{ $user['role'] }}">
+                                                <select id="item-{{ $user['id'] }}">
+                                                    <option value="user" {{ $user['role'] === 'user' ? 'selected' : '' }}>User</option>
+                                                    <option value="admin" {{ $user['role'] === 'admin' ? 'selected' : '' }}>Admin</option>
+                                                </select>
                                                 <div>
-                                                    <input type="submit" class="button update-category"
-                                                           id="{{$user['id']}}"
+                                                    <input type="submit" class="button update-role"
+                                                           id="update-role-{{ $user['id'] }}"
                                                            data-token="{{ \App\classes\CSRFToken::_token() }}"
                                                            value="Update">
                                                 </div>
@@ -64,7 +66,7 @@
                                             <span aria-hidden="true">&times;</span>
                                         </a>
                                     </div>
-                                    <!--End Edit Category Modal -->
+                                    <!-- End Edit Role Modal -->
 
 
                                 </td>
@@ -80,6 +82,4 @@
             </div>
         </div>
     </div>
-
-    @include('includes.delete-modal')
 @endsection

@@ -51,8 +51,8 @@
                                         <form>
                                             <div class="input-group" style="display: block">
                                                 <select id="item-<?php echo e($user['id']); ?>">
-                                                    <option value="user" <?php echo e($user['role'] === 'user' ? 'selected' : ''); ?>>User</option>
-                                                    <option value="admin" <?php echo e($user['role'] === 'admin' ? 'selected' : ''); ?>>Admin</option>
+                                                    <option value="user" <?php echo e($user['role'] === 'user' ? 'selected' : ''); ?>>user</option>
+                                                    <option value="admin" <?php echo e($user['role'] === 'admin' ? 'selected' : ''); ?>>admin</option>
                                                 </select>
                                                 <div>
                                                     <input type="submit" class="button update-role"
@@ -62,7 +62,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a href="/admin/users" class="close-button" data-close aria-label="Close modal" type="button">
+                                        <a href="/admin/product/users" class="close-button" data-close aria-label="Close modal" type="button">
                                             <span aria-hidden="true">&times;</span>
                                         </a>
                                     </div>

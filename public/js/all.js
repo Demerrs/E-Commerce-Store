@@ -46002,17 +46002,17 @@ module.exports = __webpack_amd_options__;
             e.preventDefault();
         });
 
-        //update Users role
-        $(".update-category").on('click', function (e) {
+        $(".update-role").on('click', function (e) {
+            e.preventDefault();
+
             var token = $(this).data('token');
-            var id = $(this).attr('id');
-            var name = $("#item-role-" + id).val();
+            var id = $(this).attr('id').replace('update-role-', '');
+            var role = $('#item-' + id + ' option:selected').val();
 
             $.ajax({
                 type: 'POST',
                 url: '/admin/users/' + id + '/edit',
-                data: { token: token, name: name },
-                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: { token: token, role: role },
                 success: function success(data) {
                     var response = jQuery.parseJSON(data);
                     $(".notification").css("display", 'block').removeClass('alert').addClass('primary').delay(4000).slideUp(300).html(response.success);
@@ -46028,8 +46028,6 @@ module.exports = __webpack_amd_options__;
                     $(".notification").css("display", 'block').removeClass('primary').addClass('alert').delay(6000).slideUp(300).html(ul);
                 }
             });
-
-            e.preventDefault();
         });
     };
 })();
@@ -46389,6 +46387,7 @@ module.exports = __webpack_amd_options__;
                 break;
             case 'adminUsers':
                 ESTORE.admin.update();
+                break;
             case 'adminDashboard':
                 ESTORE.admin.dashboard();
                 break;
