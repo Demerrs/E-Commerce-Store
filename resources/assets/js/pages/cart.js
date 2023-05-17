@@ -107,7 +107,14 @@
                             },
 
                             onAuthorize: function(data) {
-
+                                return paypal.request.post(CREATE_PAYMENT_EXECUTE_ROUTE,
+                                    {paymentId: data.paymentID, payerId: data.payerID})
+                                    .then(function (response){
+                                        $(".notify").css("display", 'block').delay(4000).slideUp(300)
+                                            .html(response.success);
+                                        app.displayItems(10);
+                                        app.paypalCheckout();
+                                    })
                             }
                         }, '#paypalBtn');
                     },2000)
