@@ -46049,13 +46049,12 @@ module.exports = __webpack_amd_options__;
             token: function token(_token) {
                 var data = $.param({ stripeToken: _token.id, stripeEmail: _token.email });
                 axios.post('/cart/payment', data).then(function (response) {
-                    $(".notify").css("display", "block").delay(4000).slideUp(300).html(response.data.success);
+                    $(".notify").css("display", 'block').delay(4000).slideUp(300).html(response.data.success);
                     app.displayItems(200);
                 }).catch(function (error) {
                     console.log(error);
                 });
             }
-
         });
 
         var app = new Vue({
@@ -46091,51 +46090,66 @@ module.exports = __webpack_amd_options__;
                 updateQuantity: function updateQuantity(product_id, operator) {
                     var postData = $.param({ product_id: product_id, operator: operator });
                     axios.post('/cart/update-qty', postData).then(function (response) {
-                        app.displayItems(200);
+                        app.displayItems(10);
                         app.paypalCheckout();
                     });
                 },
                 removeItem: function removeItem(index) {
                     var postData = $.param({ item_index: index });
                     axios.post('/cart/remove-item', postData).then(function (response) {
-                        $(".notify").css("display", "block").delay(4000).slideUp(300).html(response.data.success);
-                        app.displayItems(200);
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300).html(response.data.success);
+                        app.displayItems(10);
                         app.paypalCheckout();
                     });
                 },
                 checkout: function checkout() {
                     Stripe.open({
-                        name: "Ecommerce Store, Inc.",
+                        name: "ACME Store, Inc.",
                         description: "Shopping Cart Items",
                         email: $('#properties').data('customer-email'),
                         amount: app.amountInCents,
-                        zipCode: true
+                        zipCode: true,
+                        currency: 'USD'
                     });
                 },
                 paypalCheckout: function paypalCheckout() {
                     setTimeout(function () {
+                        var payPalInfo = $('#paypalInfo');
+                        var baseUrl = payPalInfo.data('app-baseurl');
+                        var environment = payPalInfo.data('app-env');
+                        var env = 'sandbox';
+
+                        if (environment === 'production') {
+                            env = 'production';
+                        }
+
+                        var CREATE_PAYMENT_ROUTE = baseUrl + '/paypal/create-payment';
+                        var CREATE_PAYMENT_EXECUTE_ROUTE = baseUrl + '/paypal/execute-payment';
+
                         paypal.Button.render({
-                            env: 'sandbox',
-                            commit: true,
+                            env: env,
+
+                            commit: true, // Show a 'Pay Now' button
 
                             style: {
                                 color: 'gold',
                                 size: 'small'
                             },
 
-                            payment: function payment(data) {},
-                            onAuthorize: function onAuthorize(data) {
+                            payment: function payment(data) {
+                                return paypal.request.post(CREATE_PAYMENT_ROUTE).then(function (data) {
+                                    return data.id;
+                                });
+                            },
 
-                                app.paypalCheckout();
-                            }
-
+                            onAuthorize: function onAuthorize(data) {}
                         }, '#paypalBtn');
                     }, 2000);
                 },
                 emptyCart: function emptyCart() {
                     axios.post('/cart/empty').then(function (response) {
-                        $(".notify").css("display", "block").delay(4000).slideUp(300).html(response.data.success);
-                        app.displayItems(200);
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300).html(response.data.success);
+                        app.displayItems(10);
                         app.paypalCheckout();
                     });
                 }

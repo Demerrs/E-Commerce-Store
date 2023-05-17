@@ -1,23 +1,22 @@
-(function (){
-    'use strict'
+(function () {
+    'use strict';
 
-    ESTORE.product.cart = function (){
+    ESTORE.product.cart = function () {
 
         var Stripe = StripeCheckout.configure({
             key: $('#properties').data('stripe-key'),
             locale: "auto",
             image: "https://s3.amazonaws.com/stripe-uploads/acct_1AFi4XD6RN5QLHpHmerchant-icon-1496449193909-logo.PNG",
-            token: function (token){
+            token: function (token) {
                 var data = $.param({stripeToken: token.id, stripeEmail:token.email});
-                axios.post('/cart/payment', data).then(function (response){
-                    $(".notify").css("display", "block").delay(4000).slideUp(300)
+                axios.post('/cart/payment', data).then(function (response) {
+                    $(".notify").css("display", 'block').delay(4000).slideUp(300)
                         .html(response.data.success);
                     app.displayItems(200);
-                }).catch(function(error){
+                }).catch(function (error) {
                     console.log(error);
                 })
             }
-
         });
 
         var app = new Vue({
@@ -32,11 +31,11 @@
                 amountInCents: 0
             },
             methods: {
-                displayItems: function (time){
+                displayItems: function (time) {
                     this.loading = true;
-                    setTimeout(function (){
-                        axios.get('/cart/items').then(function(response){
-                            if (response.data.fail){
+                    setTimeout(function () {
+                        axios.get('/cart/items').then(function (response) {
+                            if(response.data.fail){
                                 app.fail = true;
                                 app.message = response.data.fail;
                                 app.loading = false;
@@ -48,70 +47,86 @@
                                 app.amountInCents = response.data.amountInCents;
                             }
                         });
-                    }, time)
+                    }, time);
                 },
                 updateQuantity: function (product_id, operator) {
                     var postData = $.param({product_id:product_id, operator:operator});
                     axios.post('/cart/update-qty', postData).then(function (response) {
-                        app.displayItems(200);
+                        app.displayItems(10);
                         app.paypalCheckout();
                     });
                 },
-                removeItem: function (index){
+                removeItem: function (index) {
                     var postData = $.param({item_index:index});
-                    axios.post('/cart/remove-item', postData).then(function (response){
-                        $(".notify").css("display", "block").delay(4000).slideUp(300)
+                    axios.post('/cart/remove-item', postData).then(function (response) {
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300)
                             .html(response.data.success);
-                        app.displayItems(200);
+                        app.displayItems(10);
                         app.paypalCheckout();
                     });
                 },
-                checkout: function (){
+                checkout: function () {
                     Stripe.open({
-                        name: "Ecommerce Store, Inc.",
+                        name: "ACME Store, Inc.",
                         description: "Shopping Cart Items",
                         email: $('#properties').data('customer-email'),
                         amount: app.amountInCents,
-                        zipCode: true
+                        zipCode: true,
+                        currency: 'USD'
                     });
                 },
-                paypalCheckout: function(){
-                    setTimeout(function (){
+                paypalCheckout: function () {
+                    setTimeout(function () {
+                        var payPalInfo = $('#paypalInfo');
+                        var baseUrl = payPalInfo.data('app-baseurl');
+                        var environment = payPalInfo.data('app-env');
+                        var env = 'sandbox';
+
+                        if(environment === 'production'){
+                            env = 'production';
+                        }
+
+                        var CREATE_PAYMENT_ROUTE = baseUrl + '/paypal/create-payment';
+                        var CREATE_PAYMENT_EXECUTE_ROUTE = baseUrl + '/paypal/execute-payment';
+
                         paypal.Button.render({
-                            env: 'sandbox',
-                            commit: true,
+                            env: env,
+
+                            commit: true, // Show a 'Pay Now' button
 
                             style: {
                                 color: 'gold',
                                 size: 'small'
                             },
 
-                            payment: function (data){
-
+                            payment: function(data) {
+                                return paypal.request.post(CREATE_PAYMENT_ROUTE)
+                                    .then(function (data) {
+                                        return data.id;
+                                    })
                             },
-                            onAuthorize: function (data){
 
-                                app.paypalCheckout();
+                            onAuthorize: function(data) {
+
                             }
-
                         }, '#paypalBtn');
-                    }, 2000)
+                    },2000)
                 },
-                emptyCart: function (){
-                    axios.post('/cart/empty').then(function (response){
-                        $(".notify").css("display", "block").delay(4000).slideUp(300)
+                emptyCart: function () {
+                    axios.post('/cart/empty').then(function (response) {
+                        $(".notify").css("display", 'block').delay(4000).slideUp(300)
                             .html(response.data.success);
-                        app.displayItems(200);
+                        app.displayItems(10);
                         app.paypalCheckout();
                     });
                 }
             },
-            created: function(){
+            created: function () {
                 this.displayItems(1000);
             },
-            mounted: function(){
+            mounted: function () {
                 this.paypalCheckout();
             }
         });
-    }
+    };
 })();

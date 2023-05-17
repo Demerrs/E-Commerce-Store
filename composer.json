@@ -18,7 +18,8 @@
         "nesbot/carbon": "^1.39",
         "voku/pagination": "^4.0",
       "ext-openssl": "*",
-        "stripe/stripe-php": "^10.13"
+        "stripe/stripe-php": "^10.13",
+        "guzzlehttp/guzzle": "^7.6"
     },
     "require-dev": {
         "filp/whoops": "^2.15"

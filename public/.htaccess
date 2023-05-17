@@ -7,3 +7,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 #Redirect our request to index.php
 RewriteRule . index.php [L]
 
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "http://test.test"
+</IfModule>
+
+
+
