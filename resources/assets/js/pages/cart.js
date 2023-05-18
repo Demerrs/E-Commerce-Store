@@ -45,6 +45,10 @@
                                 app.loading = false;
                                 app.authenticated = response.data.authenticated;
                                 app.amountInCents = response.data.amountInCents;
+
+                                if (app.items.length > 0) {
+                                    app.paypalCheckout();
+                                }
                             }
                         });
                     }, time);
@@ -53,7 +57,6 @@
                     var postData = $.param({product_id:product_id, operator:operator});
                     axios.post('/cart/update-qty', postData).then(function (response) {
                         app.displayItems(10);
-                        app.paypalCheckout();
                     });
                 },
                 removeItem: function (index) {
@@ -62,7 +65,6 @@
                         $(".notify").css("display", 'block').delay(4000).slideUp(300)
                             .html(response.data.success);
                         app.displayItems(10);
-                        app.paypalCheckout();
                     });
                 },
                 checkout: function () {
@@ -113,7 +115,6 @@
                                         $(".notify").css("display", 'block').delay(4000).slideUp(300)
                                             .html(response.success);
                                         app.displayItems(10);
-                                        app.paypalCheckout();
                                     })
                             }
                         }, '#paypalBtn');
@@ -124,7 +125,6 @@
                         $(".notify").css("display", 'block').delay(4000).slideUp(300)
                             .html(response.data.success);
                         app.displayItems(10);
-                        app.paypalCheckout();
                     });
                 }
             },
@@ -132,7 +132,9 @@
                 this.displayItems(1000);
             },
             mounted: function () {
-                this.paypalCheckout();
+                if (this.items.length > 0) {
+                    this.paypalCheckout();
+                }
             }
         });
     };
