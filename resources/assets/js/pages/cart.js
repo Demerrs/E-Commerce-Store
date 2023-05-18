@@ -118,7 +118,7 @@
                                     })
                             }
                         }, '#paypalBtn');
-                    },2000)
+                    },10)
                 },
                 emptyCart: function () {
                     axios.post('/cart/empty').then(function (response) {

@@ -46151,7 +46151,7 @@ module.exports = __webpack_amd_options__;
                                 });
                             }
                         }, '#paypalBtn');
-                    }, 2000);
+                    }, 10);
                 },
                 emptyCart: function emptyCart() {
                     axios.post('/cart/empty').then(function (response) {
